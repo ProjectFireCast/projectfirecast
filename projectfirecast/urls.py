@@ -18,6 +18,12 @@ from django.urls import path, include
 
 
 urlpatterns = [
-    path(r'admin/', admin.site.urls),
     path('', include('firecast.urls')),
+
+    # django admin
+    path('admin/', admin.site.urls),
+
+    # user management
+    path('users/', include('users.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

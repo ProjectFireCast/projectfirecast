@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load socialaccount %}
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>FireCast</h1>
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}</p>
+<p><a href="{%  url 'account_logout' %}">Logout</a></p>
+{%  else %}
+<p><a href="{% url 'account_signup' %}">Sign up</a></p>
+<p><a href="{% url 'account_login' %}">Login</a></p>
+<p><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
+{% endif %}
+</body>
+</html>
