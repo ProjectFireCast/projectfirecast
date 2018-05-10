@@ -1,12 +1,31 @@
 <!-- templates/firecast/home.html -->
+{% load staticfiles %}
 {% load socialaccount %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
 
-<h1>FireCast</h1>
-{% if user.is_authenticated %}
-<p>Hi {{ user.username }}</p>
-<p><a href="{%  url 'account_logout' %}">Logout</a></p>
-{%  else %}
-<p><a href="{% url 'account_signup' %}">Sign up</a></p>
-<p><a href="{% url 'account_login' %}">Login</a></p>
-<p><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
-{% endif %}
+  </head>
+  <body>
+  <nav>
+      {% if user.is_authenticated %}
+    Hi {{ user.username }}
+    <a href="{%  url 'account_logout' %}">Logout</a>
+    {%  else %}
+    <a href="{% url 'account_signup' %}">Sign up</a>
+    <a href="{% url 'account_login' %}">Login</a>
+    <a href="{% provider_login_url 'google' %}">Login with your google account</a>
+    {% endif %}
+
+      <h1>FireCast</h1>
+  </nav>
+  {% if user.is_authenticated %}
+  {% include 'firecast/index.html' %}
+  {% endif %}
+  </body>
+</html>
+
+
