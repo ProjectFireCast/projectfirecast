@@ -1,4 +1,4 @@
- h1{
+h1{
         text-align: center;
         padding-top: 78px;
         font-size: 60px;
@@ -8,12 +8,29 @@
         text-align: center;
          font-size: 25px;
          font-family: Walkway;
+         font-weight: bold;
+         font-style: italic;
     }
     h2{
          text-align: center;
          font-size: 30px;
          font-family: Walkway;
     }
+
+    a{
+        text-align: center;
+    }
+
+    button{
+          margin:auto;
+          display:block;
+    }
+
+    form{
+      text-align: center;
+    }
+
+
 
     .navbar-brand{
          font-family: Walkway;
