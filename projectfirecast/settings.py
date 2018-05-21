@@ -61,9 +61,13 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_UNIQUE_EMAIL = True
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # EMAIL_BACKEND = 'django_smtp_ssl.SSLEmailBackend'
+
+EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+MAILJET_API_KEY = '23bfbcf4bd9a77f257aae32e5a9c183f'
+MAILJET_API_SECRET = '4acb0108317e551464036eb4d1282bb5'
 
 # EMAIL_USE_TLS = True
 # EMAIL_HOST = 'smtp.gmail.com'
@@ -150,17 +154,23 @@ USE_L10N = True
 USE_TZ = True
 
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "projectfirecast/static"),
 ]
 
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
 
