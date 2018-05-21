@@ -10,6 +10,7 @@
     <title>Project FireCast</title>
 </head>
 <body>
+<<<<<<< Updated upstream
 <h1>Welcome to Project FireCast</h1>
 
 <div class="container">
@@ -46,6 +47,49 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+=======
+<header>
+      <h2>Podcast Studio</h2>
+    </header>
+  <div class="wrapper">
+
+    <section class="main-controls">
+      <canvas class="visualizer"></canvas>
+      <button class="record">Record</button>
+      <button class="stop">Stop</button>
+    </section>
+
+    <section class="sound-clips">
+
+      <!-- <article class="clip">
+        <audio controls></audio>
+        <a href="">Download clip</a>
+      </article> -->
+
+    </section>
+
+  </div>
+
+  <label for="toggle">❔</label>
+  <input type="checkbox" id="toggle">
+  <aside>
+    <h2>Information</h2>
+
+    <p>Web dictaphone is built using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator.getUserMedia">getUserMedia</a> and the <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder_API">MediaRecorder API</a>, which provides an easier way to capture Media streams.</p>
+
+    <p>MediaRecorder API currently only works in Firefox 25 (desktop/mobile) and Firefox OS 2.0. gUM and Web Audio have wider support.</p>
+
+    <p>Icon courtesy of <a href="http://findicons.com/search/microphone">Find Icons</a>. Thanks to <a href="http://soledadpenades.com/">Sole</a> for the Oscilloscope code!</p>
+
+    <button id="install-btn">Install app</button>
+  </aside>
+
+  <!-- The following element pulls in the script for the default template functionality -->
+{% block js %}
+  <script src="{% static "scripts/install.js" %}"></script>
+    <script src="{% static "scripts/app.js" %}"></script>
+  {% endblock %}
+>>>>>>> Stashed changes
 
 </body>
 </html>
