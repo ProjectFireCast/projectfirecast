@@ -1,0 +1,1 @@
+web: gunicorn projectfirecast.wsgi --log-file -
