@@ -26,5 +26,8 @@ urlpatterns = [
     # user management
     path('users/', include('users.urls')),
     path('accounts/', include('allauth.urls')),
+
+    #audio
+    path('studio/', include('studio.urls')),
 ]
 

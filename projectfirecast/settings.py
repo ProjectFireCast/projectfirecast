@@ -25,8 +25,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django_static_jquery',
     'firecast.apps.FirecastConfig',
     'users',
+    'studio',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -150,6 +152,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "projectfirecast/static"),
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
@@ -157,7 +160,5 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-# Configure Django App for Heroku.
-import django_heroku
-django_heroku.settings(locals())
+
 

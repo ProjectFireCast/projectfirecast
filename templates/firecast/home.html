@@ -58,7 +58,7 @@
 </div>
 
   {% if user.is_authenticated %}
-    {% include 'firecast/index.html' %}
+    {% include 'firecast/usermenu.html'%}
 {% else %}
  <img src="{% static "app-icons/TestBack3.jpg" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
 
@@ -82,6 +82,18 @@
       <div class="container">
         <h1 class="display-4">What is FireCast?</h1>
         <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
+          <ul>
+              <li>
+                <a href="{% url 'record' %}">record</a>
+              </li>
+              <li>
+                <a href="{% url 'mix' %}">mix</a>
+              </li>
+              <li>
+                <a href="{% url 'usermenu' %}">usermenu</a>
+              </li>
+          </ul>
+
       </div>
 
     </div>

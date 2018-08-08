@@ -8,6 +8,10 @@ class HomePageView(TemplateView):
     template_name = 'firecast/home.html'
 
 
+class UserMenuView(TemplateView):
+    template_name = 'firecast/usermenu.html'
+
+
 
 
 # email = EmailMessage('Subject', 'Body', to=['projectfirecast666@gmail.com'])
