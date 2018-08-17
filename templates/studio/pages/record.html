@@ -13,45 +13,81 @@
   <title>Record An Audio Track</title>
   <meta name="description" content="Waveform Playlist experimental recording feature using MediaRecorder.">
 
-  <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
   <link rel="canonical" href="https://naomiaro.github.io/waveform-playlist/record.html">
   <link rel="alternate" type="application/rss+xml" title="Waveform Playlist" href="https://naomiaro.github.io/waveform-playlist/feed.xml">
+  <link  href="/static/styles/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
 </head>
 
 
   <body>
 
+
+
     <header class="site-header">
 
-  <ol class="breadcrumb">
-    <li><a href="{% url "usermenu" %}">Menu</a></li>
-    <li class="active">Record An Audio Track</li>
-  </ol>
+      <ol class="breadcrumb">
+        <li><a href="{% url "usermenu" %}">Menu</a></li>
+        <li class="active">Record An Audio Track</li>
+      </ol>
 
-</header>
+    </header>
+
+    <!-- NAV BAR -->
+<div class="container">
+	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">
+			<img src="/static/app-icons/Taskbar-Logo.png" width="40" height="40" alt="" >
+              <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast Studio</a>
+		  </a>
+            <a class="username">
+
+                    Hi Admin
+
+            </a>
+		<div class="pull-right">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  </div>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item active">
+
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="/accounts/logout/">
+                            <button class=" btn btn-sm btn-outline-warning" type="button">Logout</button>
+                        </a>
+                      </li>
+
+                    <a class="nav-link " href="/accounts/signup/">
+                   <button class="btn btn-sm btn-outline-warning" type="button">SignUp</button>
+               </a>
+			  </li>
+			</ul>
+		  </div>
+		  </div>
+		</nav>
+</div>
 
 
-    <a href="https://github.com/naomiaro/waveform-playlist" style="position: absolute; top: 0; right: 0; border: 0; z-index: 100;"><img src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+   <!-- <a href="https://github.com/naomiaro/waveform-playlist" style="position: absolute; top: 0; right: 0; border: 0; z-index: 100;"><img src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a> -->
+
+
 
     <div class="container">
   <div class="wrapper">
     <article class="post">
       <header class="post-header">
-        <h1 class="post-title">Record An Audio Track</h1>
-        <p class="lead">Record a track in MediaRecorder enabled browsers. Allows recording over tracks, shows real-time recording progress.</p>
+        <h1 class="post-title">FireCast Studio</h1>
       </header>
-      <div class="post-content">
-        <p>Experimental recording feature using
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/MediaRecorder">
-    MediaRecorder</a>, Tested in Firefox >= 41.0.2 & Chrome >= 58</p>
-<p><em>PAGE NEEDS HTTPS ACCESS</em></p>
-<p>Can record a track on top of the previously recorded track!
-  Drop some tracks into the container below if
-  you'd like to try recording over them.</p>
 
-<div id="top-bar" class="playlist-top-bar">
+        <div id="top-bar" class="playlist-top-bar">
   <div class="playlist-toolbar">
     <div class="btn-group">
       <span class="btn-play btn btn-success">
@@ -93,7 +129,17 @@
     </div>
   </div>
 </div>
-<div id="playlist"></div>
+
+<div id="playlist">
+    <p>Press record to begin recording</p>
+</div>
+
+
+
+
+
+
+
 <div class="playlist-bottom-bar">
   <form class="form-inline">
   <select class="time-format form-control">
@@ -109,6 +155,9 @@
   <label class="audio-pos">00:00:00.0</label>
 </form>
 
+ <div class="post-content">
+ <h2>Can record a track on top of the previously recorded track! Drop some tracks into the container below if you'd like to try recording over them.</h2>
+
   <div class="track-drop"></div>
   <div class="loading-data"></div>
 </div>
@@ -120,10 +169,8 @@
 
 <footer class="well well-lg">
   
-  <p>Waveform Playlist originally written for <a href="https://www.sourcefabric.org/en/airtime">Airtime</a> at <a href="https://www.sourcefabric.org">Sourcefabric</a></p>
-  <p>The annotation plugin has been sponsored by a fond Italian TED volunteer transcriber, hoping to make easier and more fun the transcription process of TEDx talks.</p>
-  <p class="copyright">waveform-playlist maintained by <a href="https://github.com/naomiaro">naomiaro</a></p>
-  <p>Licensed under the MIT License</p>
+  <p>FireCast Studio is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
+  <p>FireCast 2018</p>
 </footer>
 
 
