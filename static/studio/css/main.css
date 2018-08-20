@@ -21,7 +21,8 @@
     cursor: e-resize; }
   .playlist .state-shift {
     cursor: ew-resize; }
-  .playlist .selection.point {
+  .playlist .selection.po
+  int {
     background: red; }
   .playlist .selection.segment {
     background: rgba(0, 0, 0, 0.1); }
