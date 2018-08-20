@@ -36,7 +36,7 @@
 
     </header>
 
-    <!-- NAV BAR -->
+    
 <!-- NAV BAR -->
 <div class="container">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -49,7 +49,7 @@
                 {% if user.is_authenticated %}
                     Hi {{ user.username }}
                 {% endif %}
-            </a>
+      </a>
 		<div class="pull-right">
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -73,6 +73,7 @@
                       </li>
                 {% endif %}
                     <a class="nav-link " href="{% url 'account_signup' %}">
+
                    <button class="btn btn-sm btn-outline-warning" type="button">SignUp</button>
                </a>
 			  </li>
