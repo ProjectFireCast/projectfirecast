@@ -46,8 +46,7 @@
       <ConnectionLimit>-1</ConnectionLimit>
       <BypassRls>1</BypassRls>
     </role>
-    <schema id="9" parent="2" name="information_schema">
-      <ObjectId>12648</ObjectId>
+
     </schema>
     <schema id="10" parent="2" name="pg_catalog">
       <ObjectId>11</ObjectId>
@@ -70,5 +69,6 @@
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
+
   </database-model>
 </dataSource>
