@@ -24,6 +24,13 @@ h1{
          font-size: 30px;
          font-family: Walkway;
     }
+    .username{
+        text-align: center;
+         font-size: 25px;
+         font-family: "Helvetica Neue";
+         font-weight: bold;
+        color: white;
+    }
 
     a{
         text-align: center;
