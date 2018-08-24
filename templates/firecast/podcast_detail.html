@@ -1,0 +1,23 @@
+{#{% extends 'base.html' %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Podcasts</title>
+</head>
+<body>
+{%  block content %}
+    <h1>Podcasts</h1>
+    <div class="podcast_detail">
+        <div class="podcast">
+            <img src="{{ podcast.image.url }}"/>
+            <h2>{{ podcast.title}}</h2>
+            <p>{{ podcast.date }}</p>
+            <p>{{ podcast.description }}</p>
+        </div>
+    </div>
+
+
+{% endblock %}
+</body>
+</html>

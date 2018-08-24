@@ -13,8 +13,7 @@ function install(ev) {
     // installapp.error.name
     alert(installLocFind.error.name);
   };
-};
-
+}
 // get a reference to the button and call install() on click if the app isn't already installed. If it is, hide the button.
 var button = document.getElementById('install-btn');
 
@@ -25,5 +24,5 @@ installCheck.onsuccess = function() {
     button.style.display = "none";
   } else {
     button.addEventListener('click', install, false);
-  };
+  }
 };

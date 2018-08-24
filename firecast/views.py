@@ -16,19 +16,8 @@ class UserMenuView(TemplateView):
     template_name = 'firecast/usermenu.html'
 
 
-# class CreatePodcastView(TemplateView):
-#     template_name = 'firecast/create_podcast.html'
 
-
-# login_required(login_url="/accounts/login")
-# def create_podcast(request):
-#     form = forms.PodcastForm()
-#     return render(request, 'firecast/create_podcast.html', {'form': form})
-
-# def home(request):
-#     podcasts = Podcast.objects.all()
-#     return render(request, 'firecast/', {'podcasts': podcasts})
-
+# login_required(login_url="/accounts/login"
 def create_podcast(request):
     if request.method == 'POST':
         form = PodcastForm(request.POST, request.FILES)
@@ -38,3 +27,14 @@ def create_podcast(request):
     else:
         form = forms.PodcastForm()
     return render(request, 'firecast/upload_podcast.html', {'form': form})
+
+
+def podcast_list(request):
+    podcasts = Podcast.objects.all().order_by('date')
+    return render(request, 'firecast/podcast_list.html', {'podcasts': podcasts})
+
+
+def podcast_detail(request, slug):
+    # return HttpResponse(slug)
+    podcast = Podcast.objects.get(slug=slug)
+    return render(request, 'firecast/podcast_detail.html', {'podcast': podcast})

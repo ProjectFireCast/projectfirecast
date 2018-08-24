@@ -12,28 +12,32 @@
     <meta property="og:image:width" content="1039">
 
     <title>Record An Audio Track</title>
-    <meta name="description" content="Waveform Playlist experimental recording feature using MediaRecorder.">
-
+    <meta name="description" content="FireCast online podcast recorder and editor">
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    {% comment %}<link rel="canonical" href="https://naomiaro.github.io/waveform-playlist/record.html">
+    <link rel="canonical" href="https://naomiaro.github.io/waveform-playlist/record.html">
     <link rel="alternate" type="application/rss+xml" title="Waveform Playlist"
-          href="https://naomiaro.github.io/waveform-playlist/feed.xml">{% endcomment %}
-    <link href="/static/styles/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
+          href="https://naomiaro.github.io/waveform-playlist/feed.xml">
+    <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
+<link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
+
+
+
 </head>
 
 
 <body>
+
 <div class="container">
-    <div class="container">
+<div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{% url 'home' %}">
                     <img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="">
-                    <a style="padding-top: 10px" class="navbar-brand" href="#">FireCast</a>
+                    <a style="padding-top: 10px" class="navbar-brand" href="{% url 'home' %}">FireCast</a>
                 </a>
                 <a class="username">
                     {% if user.is_authenticated %}
@@ -79,7 +83,7 @@
 
     <div class="track-drop"></div>
 
-    <header class="site-header">
+     <header class="site-header">
 
         <ol class="breadcrumb">
             <li><a href="{% url "usermenu" %}">Menu</a></li>
@@ -93,10 +97,11 @@
             <article class="post">
                 <header class="post-header">
                     <h1 class="post-title">FireCast Studio</h1>
+                    <h5>Record a track on top of the previously recorded track? We gotchu fam.</h5>
+                    <h5>Needs backing music? Sound effects? Drag and drop your audio files into the
+                            editor below.</h5>
                 </header>
-                <div class="container-fluid">
 
-                </div>
                 <div id="top-bar" class="playlist-top-bar">
                     <div class="playlist-toolbar">
                         <div class="btn-group">
@@ -173,36 +178,12 @@
                 </div>
 
                 <div id="playlist">
-                    <p>Press record to begin recording</p>
+                    <p>Press record to begin...recording?</p>
                 </div>
 
 
                 <div class="playlist-bottom-bar">
-                    {% comment %}<form class="form-inline">
-                        <select class="time-format form-control">
-                            <option value="seconds">seconds</option>
-                            <option value="thousandths">thousandths</option>
-                            <option value="hh:mm:ss">hh:mm:ss</option>
-                            <option value="hh:mm:ss.u">hh:mm:ss + tenths</option>
-                            <option value="hh:mm:ss.uu">hh:mm:ss + hundredths</option>
-                            <option value="hh:mm:ss.uuu" selected="selected">hh:mm:ss + milliseconds</option>
-                        </select>
-                        <input type="text" class="audio-start input-small form-control">
-                        <input type="text" class="audio-end form-control">
-                        <label class="audio-pos">00:00:00.0</label>
-                    </form>
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="master-gain">Master Volume</label>
-                            <input type="range" min="0" max="100" value="100" class="master-gain form-control"
-                                   id="master-gain">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="automatic-scroll"> Automatic Scroll
-                            </label>
-                        </div>
-                    </form>{% endcomment %}
+
                     <form class="form-inline">
                         <select class="time-format form-control">
                             <option value="seconds">seconds</option>
@@ -217,32 +198,13 @@
                         <label class="audio-pos">00:00:00.0</label>
                     </form>
 
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="master-gain">Master Volume</label>
-                            <input type="range" min="0" max="100" value="100" class="master-gain form-control"
-                                   id="master-gain">
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" class="automatic-scroll"> Automatic Scroll
-                            </label>
-                        </div>
-                    </form>
-                    <form class="form-inline">
-                        <div class="control-group">
-                            <label for="time">Seek to time :</label>
-                            <input type="number" class="form-control" value="14" id="seektime"/>
-                            <span class="btn btn-primary btn-seektotime">Seek !</span>
-                        </div>
-                    </form>
+
                     <div class="sound-status"></div>
 
                     <div class="post-content">
-                        <h2>Can record a track on top of the previously recorded track! Drop some tracks into the
-                            container below if you'd like to try recording over them.</h2>
 
-                        <div class="loading-data"></div>
+
+{#                        <div class="loading-data"></div>#}
                     </div>
 
                 </div>
@@ -258,10 +220,10 @@
     <p>FireCast 2018</p>
 </footer>
 
-
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static "studio/js/waveform-playlist.var.js" %}"></script>
 <script src="{% static "studio/js/record.js" %}"></script>
+
 <script src="{% static "studio/js/web-audio-editor.js" %}"></script>
 <script src="{% static "studio/js/emitter.js" %}"></script>
 

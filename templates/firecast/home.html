@@ -70,9 +70,9 @@
                         <p>Hi {{ user.username }}</p>
                              <p><a href="{%  url 'account_logout' %}">Logout</a></p>
                         {%  else %}
-                        <p>Don't have a FireCast account? Sign up to get started</p>
-                                <p><a href="{% url 'account_signup' %}">Sign up</a></p>
-                                <p><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
+                        <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
+                                <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
+                                <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
                         {% endif %}
         </div>
     </div>
@@ -94,6 +94,9 @@
               </li>
               <li>
                 <a href="{% url 'upload' %}">upload podcast</a>
+              </li>
+              <li>
+                <a href="{% url 'list' %}">Podcast List</a>
               </li>
           </ul>
 

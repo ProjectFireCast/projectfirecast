@@ -808,7 +808,7 @@ var WaveformPlaylist =
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var createElement = __webpack_require__(3)
+	var createElement = __webpack_require__(3);
 	
 	module.exports = createElement
 
@@ -817,22 +817,22 @@ var WaveformPlaylist =
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var document = __webpack_require__(4)
+	var document = __webpack_require__(4);
 	
-	var applyProperties = __webpack_require__(6)
+	var applyProperties = __webpack_require__(6);
 	
-	var isVNode = __webpack_require__(9)
-	var isVText = __webpack_require__(11)
-	var isWidget = __webpack_require__(12)
-	var handleThunk = __webpack_require__(13)
+	var isVNode = __webpack_require__(9);
+	var isVText = __webpack_require__(11);
+	var isWidget = __webpack_require__(12);
+	var handleThunk = __webpack_require__(13);
 	
-	module.exports = createElement
+	module.exports = createElement;
 	
 	function createElement(vnode, opts) {
-	    var doc = opts ? opts.document || document : document
-	    var warn = opts ? opts.warn : null
+	    var doc = opts ? opts.document || document : document;
+	    var warn = opts ? opts.warn : null;
 	
-	    vnode = handleThunk(vnode).a
+	    vnode = handleThunk(vnode).a;
 	
 	    if (isWidget(vnode)) {
 	        return vnode.init()
@@ -847,15 +847,15 @@ var WaveformPlaylist =
 	
 	    var node = (vnode.namespace === null) ?
 	        doc.createElement(vnode.tagName) :
-	        doc.createElementNS(vnode.namespace, vnode.tagName)
+	        doc.createElementNS(vnode.namespace, vnode.tagName);
 	
-	    var props = vnode.properties
-	    applyProperties(node, props)
+	    var props = vnode.properties;
+	    applyProperties(node, props);
 	
-	    var children = vnode.children
+	    var children = vnode.children;
 	
 	    for (var i = 0; i < children.length; i++) {
-	        var childNode = createElement(children[i], opts)
+	        var childNode = createElement(children[i], opts);
 	        if (childNode) {
 	            node.appendChild(childNode)
 	        }
@@ -870,7 +870,7 @@ var WaveformPlaylist =
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {var topLevel = typeof global !== 'undefined' ? global :
-	    typeof window !== 'undefined' ? window : {}
+	    typeof window !== 'undefined' ? window : {};
 	var minDoc = __webpack_require__(5);
 	
 	if (typeof document !== 'undefined') {
@@ -897,19 +897,19 @@ var WaveformPlaylist =
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(7)
-	var isHook = __webpack_require__(8)
+	var isObject = __webpack_require__(7);
+	var isHook = __webpack_require__(8);
 	
-	module.exports = applyProperties
+	module.exports = applyProperties;
 	
 	function applyProperties(node, props, previous) {
 	    for (var propName in props) {
-	        var propValue = props[propName]
+	        var propValue = props[propName];
 	
 	        if (propValue === undefined) {
 	            removeProperty(node, propName, propValue, previous);
 	        } else if (isHook(propValue)) {
-	            removeProperty(node, propName, propValue, previous)
+	            removeProperty(node, propName, propValue, previous);
 	            if (propValue.hook) {
 	                propValue.hook(node,
 	                    propName,
@@ -927,7 +927,7 @@ var WaveformPlaylist =
 	
 	function removeProperty(node, propName, propValue, previous) {
 	    if (previous) {
-	        var previousValue = previous[propName]
+	        var previousValue = previous[propName];
 	
 	        if (!isHook(previousValue)) {
 	            if (propName === "attributes") {
@@ -950,12 +950,12 @@ var WaveformPlaylist =
 	}
 	
 	function patchObject(node, props, previous, propName, propValue) {
-	    var previousValue = previous ? previous[propName] : undefined
+	    var previousValue = previous ? previous[propName] : undefined;
 	
 	    // Set attributes
 	    if (propName === "attributes") {
 	        for (var attrName in propValue) {
-	            var attrValue = propValue[attrName]
+	            var attrValue = propValue[attrName];
 	
 	            if (attrValue === undefined) {
 	                node.removeAttribute(attrName)
@@ -969,7 +969,7 @@ var WaveformPlaylist =
 	
 	    if(previousValue && isObject(previousValue) &&
 	        getPrototype(previousValue) !== getPrototype(propValue)) {
-	        node[propName] = propValue
+	        node[propName] = propValue;
 	        return
 	    }
 	
@@ -977,10 +977,10 @@ var WaveformPlaylist =
 	        node[propName] = {}
 	    }
 	
-	    var replacer = propName === "style" ? "" : undefined
+	    var replacer = propName === "style" ? "" : undefined;
 	
 	    for (var k in propValue) {
-	        var value = propValue[k]
+	        var value = propValue[k];
 	        node[propName][k] = (value === undefined) ? replacer : value
 	    }
 	}
@@ -1011,7 +1011,7 @@ var WaveformPlaylist =
 /* 8 */
 /***/ (function(module, exports) {
 
-	module.exports = isHook
+	module.exports = isHook;
 	
 	function isHook(hook) {
 	    return hook &&
@@ -1024,9 +1024,9 @@ var WaveformPlaylist =
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(10)
+	var version = __webpack_require__(10);
 	
-	module.exports = isVirtualNode
+	module.exports = isVirtualNode;
 	
 	function isVirtualNode(x) {
 	    return x && x.type === "VirtualNode" && x.version === version
@@ -1044,9 +1044,9 @@ var WaveformPlaylist =
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(10)
+	var version = __webpack_require__(10);
 	
-	module.exports = isVirtualText
+	module.exports = isVirtualText;
 	
 	function isVirtualText(x) {
 	    return x && x.type === "VirtualText" && x.version === version
@@ -1057,7 +1057,7 @@ var WaveformPlaylist =
 /* 12 */
 /***/ (function(module, exports) {
 
-	module.exports = isWidget
+	module.exports = isWidget;
 	
 	function isWidget(w) {
 	    return w && w.type === "Widget"
@@ -1068,16 +1068,16 @@ var WaveformPlaylist =
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isVNode = __webpack_require__(9)
-	var isVText = __webpack_require__(11)
-	var isWidget = __webpack_require__(12)
-	var isThunk = __webpack_require__(14)
+	var isVNode = __webpack_require__(9);
+	var isVText = __webpack_require__(11);
+	var isWidget = __webpack_require__(12);
+	var isThunk = __webpack_require__(14);
 	
-	module.exports = handleThunk
+	module.exports = handleThunk;
 	
 	function handleThunk(a, b) {
-	    var renderedA = a
-	    var renderedB = b
+	    var renderedA = a;
+	    var renderedB = b;
 	
 	    if (isThunk(b)) {
 	        renderedB = renderThunk(b, a)
@@ -1094,7 +1094,7 @@ var WaveformPlaylist =
 	}
 	
 	function renderThunk(thunk, previous) {
-	    var renderedThunk = thunk.vnode
+	    var renderedThunk = thunk.vnode;
 	
 	    if (!renderedThunk) {
 	        renderedThunk = thunk.vnode = thunk.render(previous)
@@ -1114,7 +1114,7 @@ var WaveformPlaylist =
 /* 14 */
 /***/ (function(module, exports) {
 
-	module.exports = isThunk
+	module.exports = isThunk;
 	
 	function isThunk(t) {
 	    return t && t.type === "Thunk"
@@ -3255,7 +3255,7 @@ var WaveformPlaylist =
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var h = __webpack_require__(33)
+	var h = __webpack_require__(33);
 	
 	module.exports = h
 
@@ -3338,7 +3338,7 @@ var WaveformPlaylist =
 	            addChild(c[i], childNodes, tag, props);
 	        }
 	    } else if (c === null || c === undefined) {
-	        return;
+
 	    } else {
 	        throw UnexpectedVirtualElement({
 	            foreignObject: c,
@@ -3385,7 +3385,7 @@ var WaveformPlaylist =
 	        errorString(data.foreignObject) +
 	        '.\n' +
 	        'The parent vnode is:\n' +
-	        errorString(data.parentVnode)
+	        errorString(data.parentVnode);
 	        '\n' +
 	        'Suggested fix: change your `h(..., [ ... ])` callsite.';
 	    err.foreignObject = data.foreignObject;
@@ -3407,10 +3407,10 @@ var WaveformPlaylist =
 /* 34 */
 /***/ (function(module, exports) {
 
-	var nativeIsArray = Array.isArray
-	var toString = Object.prototype.toString
+	var nativeIsArray = Array.isArray;
+	var toString = Object.prototype.toString;
 	
-	module.exports = nativeIsArray || isArray
+	module.exports = nativeIsArray || isArray;
 	
 	function isArray(obj) {
 	    return toString.call(obj) === "[object Array]"
@@ -3421,34 +3421,34 @@ var WaveformPlaylist =
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(10)
-	var isVNode = __webpack_require__(9)
-	var isWidget = __webpack_require__(12)
-	var isThunk = __webpack_require__(14)
-	var isVHook = __webpack_require__(8)
+	var version = __webpack_require__(10);
+	var isVNode = __webpack_require__(9);
+	var isWidget = __webpack_require__(12);
+	var isThunk = __webpack_require__(14);
+	var isVHook = __webpack_require__(8);
 	
-	module.exports = VirtualNode
+	module.exports = VirtualNode;
 	
-	var noProperties = {}
-	var noChildren = []
+	var noProperties = {};
+	var noChildren = [];
 	
 	function VirtualNode(tagName, properties, children, key, namespace) {
-	    this.tagName = tagName
-	    this.properties = properties || noProperties
-	    this.children = children || noChildren
-	    this.key = key != null ? String(key) : undefined
-	    this.namespace = (typeof namespace === "string") ? namespace : null
+	    this.tagName = tagName;
+	    this.properties = properties || noProperties;
+	    this.children = children || noChildren;
+	    this.key = key != null ? String(key) : undefined;
+	    this.namespace = (typeof namespace === "string") ? namespace : null;
 	
-	    var count = (children && children.length) || 0
-	    var descendants = 0
-	    var hasWidgets = false
-	    var hasThunks = false
-	    var descendantHooks = false
-	    var hooks
+	    var count = (children && children.length) || 0;
+	    var descendants = 0;
+	    var hasWidgets = false;
+	    var hasThunks = false;
+	    var descendantHooks = false;
+	    var hooks;
 	
 	    for (var propName in properties) {
 	        if (properties.hasOwnProperty(propName)) {
-	            var property = properties[propName]
+	            var property = properties[propName];
 	            if (isVHook(property) && property.unhook) {
 	                if (!hooks) {
 	                    hooks = {}
@@ -3460,9 +3460,9 @@ var WaveformPlaylist =
 	    }
 	
 	    for (var i = 0; i < count; i++) {
-	        var child = children[i]
+	        var child = children[i];
 	        if (isVNode(child)) {
-	            descendants += child.count || 0
+	            descendants += child.count || 0;
 	
 	            if (!hasWidgets && child.hasWidgets) {
 	                hasWidgets = true
@@ -3484,14 +3484,14 @@ var WaveformPlaylist =
 	        }
 	    }
 	
-	    this.count = count + descendants
-	    this.hasWidgets = hasWidgets
-	    this.hasThunks = hasThunks
-	    this.hooks = hooks
+	    this.count = count + descendants;
+	    this.hasWidgets = hasWidgets;
+	    this.hasThunks = hasThunks;
+	    this.hooks = hooks;
 	    this.descendantHooks = descendantHooks
 	}
 	
-	VirtualNode.prototype.version = version
+	VirtualNode.prototype.version = version;
 	VirtualNode.prototype.type = "VirtualNode"
 
 
@@ -3499,15 +3499,15 @@ var WaveformPlaylist =
 /* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(10)
+	var version = __webpack_require__(10);
 	
-	module.exports = VirtualText
+	module.exports = VirtualText;
 	
 	function VirtualText(text) {
 	    this.text = String(text)
 	}
 	
-	VirtualText.prototype.version = version
+	VirtualText.prototype.version = version;
 	VirtualText.prototype.type = "VirtualText"
 
 
@@ -3823,7 +3823,7 @@ var WaveformPlaylist =
 /* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var diff = __webpack_require__(45)
+	var diff = __webpack_require__(45);
 	
 	module.exports = diff
 
@@ -3832,22 +3832,22 @@ var WaveformPlaylist =
 /* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isArray = __webpack_require__(34)
+	var isArray = __webpack_require__(34);
 	
-	var VPatch = __webpack_require__(46)
-	var isVNode = __webpack_require__(9)
-	var isVText = __webpack_require__(11)
-	var isWidget = __webpack_require__(12)
-	var isThunk = __webpack_require__(14)
-	var handleThunk = __webpack_require__(13)
+	var VPatch = __webpack_require__(46);
+	var isVNode = __webpack_require__(9);
+	var isVText = __webpack_require__(11);
+	var isWidget = __webpack_require__(12);
+	var isThunk = __webpack_require__(14);
+	var handleThunk = __webpack_require__(13);
 	
-	var diffProps = __webpack_require__(47)
+	var diffProps = __webpack_require__(47);
 	
-	module.exports = diff
+	module.exports = diff;
 	
 	function diff(a, b) {
-	    var patch = { a: a }
-	    walk(a, b, patch, 0)
+	    var patch = { a: a };
+	    walk(a, b, patch, 0);
 	    return patch
 	}
 	
@@ -3856,8 +3856,8 @@ var WaveformPlaylist =
 	        return
 	    }
 	
-	    var apply = patch[index]
-	    var applyClear = false
+	    var apply = patch[index];
+	    var applyClear = false;
 	
 	    if (isThunk(a) || isThunk(b)) {
 	        thunks(a, b, patch, index)
@@ -3867,7 +3867,7 @@ var WaveformPlaylist =
 	        // Otherwise any child widgets/hooks must be destroyed.
 	        // This prevents adding two remove patches for a widget.
 	        if (!isWidget(a)) {
-	            clearState(a, patch, index)
+	            clearState(a, patch, index);
 	            apply = patch[index]
 	        }
 	
@@ -3877,23 +3877,23 @@ var WaveformPlaylist =
 	            if (a.tagName === b.tagName &&
 	                a.namespace === b.namespace &&
 	                a.key === b.key) {
-	                var propsPatch = diffProps(a.properties, b.properties)
+	                var propsPatch = diffProps(a.properties, b.properties);
 	                if (propsPatch) {
 	                    apply = appendPatch(apply,
 	                        new VPatch(VPatch.PROPS, a, propsPatch))
 	                }
 	                apply = diffChildren(a, b, patch, apply, index)
 	            } else {
-	                apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b))
+	                apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b));
 	                applyClear = true
 	            }
 	        } else {
-	            apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b))
+	            apply = appendPatch(apply, new VPatch(VPatch.VNODE, a, b));
 	            applyClear = true
 	        }
 	    } else if (isVText(b)) {
 	        if (!isVText(a)) {
-	            apply = appendPatch(apply, new VPatch(VPatch.VTEXT, a, b))
+	            apply = appendPatch(apply, new VPatch(VPatch.VTEXT, a, b));
 	            applyClear = true
 	        } else if (a.text !== b.text) {
 	            apply = appendPatch(apply, new VPatch(VPatch.VTEXT, a, b))
@@ -3916,18 +3916,18 @@ var WaveformPlaylist =
 	}
 	
 	function diffChildren(a, b, patch, apply, index) {
-	    var aChildren = a.children
-	    var orderedSet = reorder(aChildren, b.children)
-	    var bChildren = orderedSet.children
+	    var aChildren = a.children;
+	    var orderedSet = reorder(aChildren, b.children);
+	    var bChildren = orderedSet.children;
 	
-	    var aLen = aChildren.length
-	    var bLen = bChildren.length
-	    var len = aLen > bLen ? aLen : bLen
+	    var aLen = aChildren.length;
+	    var bLen = bChildren.length;
+	    var len = aLen > bLen ? aLen : bLen;
 	
 	    for (var i = 0; i < len; i++) {
-	        var leftNode = aChildren[i]
-	        var rightNode = bChildren[i]
-	        index += 1
+	        var leftNode = aChildren[i];
+	        var rightNode = bChildren[i];
+	        index += 1;
 	
 	        if (!leftNode) {
 	            if (rightNode) {
@@ -3958,7 +3958,7 @@ var WaveformPlaylist =
 	
 	function clearState(vNode, patch, index) {
 	    // TODO: Make this a single walk, not two
-	    unhook(vNode, patch, index)
+	    unhook(vNode, patch, index);
 	    destroyWidgets(vNode, patch, index)
 	}
 	
@@ -3973,13 +3973,13 @@ var WaveformPlaylist =
 	            )
 	        }
 	    } else if (isVNode(vNode) && (vNode.hasWidgets || vNode.hasThunks)) {
-	        var children = vNode.children
-	        var len = children.length
+	        var children = vNode.children;
+	        var len = children.length;
 	        for (var i = 0; i < len; i++) {
-	            var child = children[i]
-	            index += 1
+	            var child = children[i];
+	            index += 1;
 	
-	            destroyWidgets(child, patch, index)
+	            destroyWidgets(child, patch, index);
 	
 	            if (isVNode(child) && child.count) {
 	                index += child.count
@@ -3992,8 +3992,8 @@ var WaveformPlaylist =
 	
 	// Create a sub-patch for thunks
 	function thunks(a, b, patch, index) {
-	    var nodes = handleThunk(a, b)
-	    var thunkPatch = diff(nodes.a, nodes.b)
+	    var nodes = handleThunk(a, b);
+	    var thunkPatch = diff(nodes.a, nodes.b);
 	    if (hasPatches(thunkPatch)) {
 	        patch[index] = new VPatch(VPatch.THUNK, null, thunkPatch)
 	    }
@@ -4024,13 +4024,13 @@ var WaveformPlaylist =
 	        }
 	
 	        if (vNode.descendantHooks || vNode.hasThunks) {
-	            var children = vNode.children
-	            var len = children.length
+	            var children = vNode.children;
+	            var len = children.length;
 	            for (var i = 0; i < len; i++) {
-	                var child = children[i]
-	                index += 1
+	                var child = children[i];
+	                index += 1;
 	
-	                unhook(child, patch, index)
+	                unhook(child, patch, index);
 	
 	                if (isVNode(child) && child.count) {
 	                    index += child.count
@@ -4043,7 +4043,7 @@ var WaveformPlaylist =
 	}
 	
 	function undefinedKeys(obj) {
-	    var result = {}
+	    var result = {};
 	
 	    for (var key in obj) {
 	        result[key] = undefined
@@ -4055,9 +4055,9 @@ var WaveformPlaylist =
 	// List diff, naive left to right reordering
 	function reorder(aChildren, bChildren) {
 	    // O(M) time, O(M) memory
-	    var bChildIndex = keyIndex(bChildren)
-	    var bKeys = bChildIndex.keys
-	    var bFree = bChildIndex.free
+	    var bChildIndex = keyIndex(bChildren);
+	    var bKeys = bChildIndex.keys;
+	    var bFree = bChildIndex.free;
 	
 	    if (bFree.length === bChildren.length) {
 	        return {
@@ -4067,9 +4067,9 @@ var WaveformPlaylist =
 	    }
 	
 	    // O(N) time, O(N) memory
-	    var aChildIndex = keyIndex(aChildren)
-	    var aKeys = aChildIndex.keys
-	    var aFree = aChildIndex.free
+	    var aChildIndex = keyIndex(aChildren);
+	    var aKeys = aChildIndex.keys;
+	    var aFree = aChildIndex.free;
 	
 	    if (aFree.length === aChildren.length) {
 	        return {
@@ -4079,39 +4079,39 @@ var WaveformPlaylist =
 	    }
 	
 	    // O(MAX(N, M)) memory
-	    var newChildren = []
+	    var newChildren = [];
 	
-	    var freeIndex = 0
-	    var freeCount = bFree.length
-	    var deletedItems = 0
+	    var freeIndex = 0;
+	    var freeCount = bFree.length;
+	    var deletedItems = 0;
 	
 	    // Iterate through a and match a node in b
 	    // O(N) time,
 	    for (var i = 0 ; i < aChildren.length; i++) {
-	        var aItem = aChildren[i]
-	        var itemIndex
+	        var aItem = aChildren[i];
+	        var itemIndex;
 	
 	        if (aItem.key) {
 	            if (bKeys.hasOwnProperty(aItem.key)) {
 	                // Match up the old keys
-	                itemIndex = bKeys[aItem.key]
+	                itemIndex = bKeys[aItem.key];
 	                newChildren.push(bChildren[itemIndex])
 	
 	            } else {
 	                // Remove old keyed items
-	                itemIndex = i - deletedItems++
+	                itemIndex = i - deletedItems++;
 	                newChildren.push(null)
 	            }
 	        } else {
 	            // Match the item in a with the next free item in b
 	            if (freeIndex < freeCount) {
-	                itemIndex = bFree[freeIndex++]
+	                itemIndex = bFree[freeIndex++];
 	                newChildren.push(bChildren[itemIndex])
 	            } else {
 	                // There are no free items in b to match with
 	                // the free items in a, so the extra free nodes
 	                // are deleted.
-	                itemIndex = i - deletedItems++
+	                itemIndex = i - deletedItems++;
 	                newChildren.push(null)
 	            }
 	        }
@@ -4119,12 +4119,12 @@ var WaveformPlaylist =
 	
 	    var lastFreeIndex = freeIndex >= bFree.length ?
 	        bChildren.length :
-	        bFree[freeIndex]
+	        bFree[freeIndex];
 	
 	    // Iterate through b and append any new keys
 	    // O(M) time
 	    for (var j = 0; j < bChildren.length; j++) {
-	        var newItem = bChildren[j]
+	        var newItem = bChildren[j];
 	
 	        if (newItem.key) {
 	            if (!aKeys.hasOwnProperty(newItem.key)) {
@@ -4139,19 +4139,19 @@ var WaveformPlaylist =
 	        }
 	    }
 	
-	    var simulate = newChildren.slice()
-	    var simulateIndex = 0
-	    var removes = []
-	    var inserts = []
-	    var simulateItem
+	    var simulate = newChildren.slice();
+	    var simulateIndex = 0;
+	    var removes = [];
+	    var inserts = [];
+	    var simulateItem;
 	
 	    for (var k = 0; k < bChildren.length;) {
-	        var wantedItem = bChildren[k]
-	        simulateItem = simulate[simulateIndex]
+	        var wantedItem = bChildren[k];
+	        simulateItem = simulate[simulateIndex];
 	
 	        // remove items
 	        while (simulateItem === null && simulate.length) {
-	            removes.push(remove(simulate, simulateIndex, null))
+	            removes.push(remove(simulate, simulateIndex, null));
 	            simulateItem = simulate[simulateIndex]
 	        }
 	
@@ -4161,8 +4161,8 @@ var WaveformPlaylist =
 	                if (simulateItem && simulateItem.key) {
 	                    // if an insert doesn't put this key in place, it needs to move
 	                    if (bKeys[simulateItem.key] !== k + 1) {
-	                        removes.push(remove(simulate, simulateIndex, simulateItem.key))
-	                        simulateItem = simulate[simulateIndex]
+	                        removes.push(remove(simulate, simulateIndex, simulateItem.key));
+	                        simulateItem = simulate[simulateIndex];
 	                        // if the remove didn't put the wanted item in place, we need to insert it
 	                        if (!simulateItem || simulateItem.key !== wantedItem.key) {
 	                            inserts.push({key: wantedItem.key, to: k})
@@ -4187,14 +4187,14 @@ var WaveformPlaylist =
 	            }
 	        }
 	        else {
-	            simulateIndex++
+	            simulateIndex++;
 	            k++
 	        }
 	    }
 	
 	    // remove all the remaining nodes from simulate
 	    while(simulateIndex < simulate.length) {
-	        simulateItem = simulate[simulateIndex]
+	        simulateItem = simulate[simulateIndex];
 	        removes.push(remove(simulate, simulateIndex, simulateItem && simulateItem.key))
 	    }
 	
@@ -4217,7 +4217,7 @@ var WaveformPlaylist =
 	}
 	
 	function remove(arr, index, key) {
-	    arr.splice(index, 1)
+	    arr.splice(index, 1);
 	
 	    return {
 	        from: index,
@@ -4226,12 +4226,12 @@ var WaveformPlaylist =
 	}
 	
 	function keyIndex(children) {
-	    var keys = {}
-	    var free = []
-	    var length = children.length
+	    var keys = {};
+	    var free = [];
+	    var length = children.length;
 	
 	    for (var i = 0; i < length; i++) {
-	        var child = children[i]
+	        var child = children[i];
 	
 	        if (child.key) {
 	            keys[child.key] = i
@@ -4265,27 +4265,27 @@ var WaveformPlaylist =
 /* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var version = __webpack_require__(10)
+	var version = __webpack_require__(10);
 	
-	VirtualPatch.NONE = 0
-	VirtualPatch.VTEXT = 1
-	VirtualPatch.VNODE = 2
-	VirtualPatch.WIDGET = 3
-	VirtualPatch.PROPS = 4
-	VirtualPatch.ORDER = 5
-	VirtualPatch.INSERT = 6
-	VirtualPatch.REMOVE = 7
-	VirtualPatch.THUNK = 8
+	VirtualPatch.NONE = 0;
+	VirtualPatch.VTEXT = 1;
+	VirtualPatch.VNODE = 2;
+	VirtualPatch.WIDGET = 3;
+	VirtualPatch.PROPS = 4;
+	VirtualPatch.ORDER = 5;
+	VirtualPatch.INSERT = 6;
+	VirtualPatch.REMOVE = 7;
+	VirtualPatch.THUNK = 8;
 	
-	module.exports = VirtualPatch
+	module.exports = VirtualPatch;
 	
 	function VirtualPatch(type, vNode, patch) {
-	    this.type = Number(type)
-	    this.vNode = vNode
+	    this.type = Number(type);
+	    this.vNode = vNode;
 	    this.patch = patch
 	}
 	
-	VirtualPatch.prototype.version = version
+	VirtualPatch.prototype.version = version;
 	VirtualPatch.prototype.type = "VirtualPatch"
 
 
@@ -4293,48 +4293,48 @@ var WaveformPlaylist =
 /* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(7)
-	var isHook = __webpack_require__(8)
+	var isObject = __webpack_require__(7);
+	var isHook = __webpack_require__(8);
 	
-	module.exports = diffProps
+	module.exports = diffProps;
 	
 	function diffProps(a, b) {
-	    var diff
+	    var diff;
 	
 	    for (var aKey in a) {
 	        if (!(aKey in b)) {
-	            diff = diff || {}
+	            diff = diff || {};
 	            diff[aKey] = undefined
 	        }
 	
-	        var aValue = a[aKey]
-	        var bValue = b[aKey]
+	        var aValue = a[aKey];
+	        var bValue = b[aKey];
 	
 	        if (aValue === bValue) {
-	            continue
+
 	        } else if (isObject(aValue) && isObject(bValue)) {
 	            if (getPrototype(bValue) !== getPrototype(aValue)) {
-	                diff = diff || {}
+	                diff = diff || {};
 	                diff[aKey] = bValue
 	            } else if (isHook(bValue)) {
-	                 diff = diff || {}
+	                 diff = diff || {};
 	                 diff[aKey] = bValue
 	            } else {
-	                var objectDiff = diffProps(aValue, bValue)
+	                var objectDiff = diffProps(aValue, bValue);
 	                if (objectDiff) {
-	                    diff = diff || {}
+	                    diff = diff || {};
 	                    diff[aKey] = objectDiff
 	                }
 	            }
 	        } else {
-	            diff = diff || {}
+	            diff = diff || {};
 	            diff[aKey] = bValue
 	        }
 	    }
 	
 	    for (var bKey in b) {
 	        if (!(bKey in a)) {
-	            diff = diff || {}
+	            diff = diff || {};
 	            diff[bKey] = b[bKey]
 	        }
 	    }
@@ -4357,7 +4357,7 @@ var WaveformPlaylist =
 /* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var patch = __webpack_require__(49)
+	var patch = __webpack_require__(49);
 	
 	module.exports = patch
 
@@ -4366,40 +4366,40 @@ var WaveformPlaylist =
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var document = __webpack_require__(4)
-	var isArray = __webpack_require__(34)
+	var document = __webpack_require__(4);
+	var isArray = __webpack_require__(34);
 	
-	var render = __webpack_require__(3)
-	var domIndex = __webpack_require__(50)
-	var patchOp = __webpack_require__(51)
-	module.exports = patch
+	var render = __webpack_require__(3);
+	var domIndex = __webpack_require__(50);
+	var patchOp = __webpack_require__(51);
+	module.exports = patch;
 	
 	function patch(rootNode, patches, renderOptions) {
-	    renderOptions = renderOptions || {}
+	    renderOptions = renderOptions || {};
 	    renderOptions.patch = renderOptions.patch && renderOptions.patch !== patch
 	        ? renderOptions.patch
-	        : patchRecursive
-	    renderOptions.render = renderOptions.render || render
+	        : patchRecursive;
+	    renderOptions.render = renderOptions.render || render;
 	
 	    return renderOptions.patch(rootNode, patches, renderOptions)
 	}
 	
 	function patchRecursive(rootNode, patches, renderOptions) {
-	    var indices = patchIndices(patches)
+	    var indices = patchIndices(patches);
 	
 	    if (indices.length === 0) {
 	        return rootNode
 	    }
 	
-	    var index = domIndex(rootNode, patches.a, indices)
-	    var ownerDocument = rootNode.ownerDocument
+	    var index = domIndex(rootNode, patches.a, indices);
+	    var ownerDocument = rootNode.ownerDocument;
 	
 	    if (!renderOptions.document && ownerDocument !== document) {
 	        renderOptions.document = ownerDocument
 	    }
 	
 	    for (var i = 0; i < indices.length; i++) {
-	        var nodeIndex = indices[i]
+	        var nodeIndex = indices[i];
 	        rootNode = applyPatch(rootNode,
 	            index[nodeIndex],
 	            patches[nodeIndex],
@@ -4414,18 +4414,18 @@ var WaveformPlaylist =
 	        return rootNode
 	    }
 	
-	    var newNode
+	    var newNode;
 	
 	    if (isArray(patchList)) {
 	        for (var i = 0; i < patchList.length; i++) {
-	            newNode = patchOp(patchList[i], domNode, renderOptions)
+	            newNode = patchOp(patchList[i], domNode, renderOptions);
 	
 	            if (domNode === rootNode) {
 	                rootNode = newNode
 	            }
 	        }
 	    } else {
-	        newNode = patchOp(patchList, domNode, renderOptions)
+	        newNode = patchOp(patchList, domNode, renderOptions);
 	
 	        if (domNode === rootNode) {
 	            rootNode = newNode
@@ -4436,7 +4436,7 @@ var WaveformPlaylist =
 	}
 	
 	function patchIndices(patches) {
-	    var indices = []
+	    var indices = [];
 	
 	    for (var key in patches) {
 	        if (key !== "a") {
@@ -4458,21 +4458,21 @@ var WaveformPlaylist =
 	// We only recurse into a DOM node if we know that it contains a child of
 	// interest.
 	
-	var noChild = {}
+	var noChild = {};
 	
-	module.exports = domIndex
+	module.exports = domIndex;
 	
 	function domIndex(rootNode, tree, indices, nodes) {
 	    if (!indices || indices.length === 0) {
 	        return {}
 	    } else {
-	        indices.sort(ascending)
+	        indices.sort(ascending);
 	        return recurse(rootNode, tree, indices, nodes, 0)
 	    }
 	}
 	
 	function recurse(rootNode, tree, indices, nodes, rootIndex) {
-	    nodes = nodes || {}
+	    nodes = nodes || {};
 	
 	
 	    if (rootNode) {
@@ -4480,17 +4480,17 @@ var WaveformPlaylist =
 	            nodes[rootIndex] = rootNode
 	        }
 	
-	        var vChildren = tree.children
+	        var vChildren = tree.children;
 	
 	        if (vChildren) {
 	
-	            var childNodes = rootNode.childNodes
+	            var childNodes = rootNode.childNodes;
 	
 	            for (var i = 0; i < tree.children.length; i++) {
-	                rootIndex += 1
+	                rootIndex += 1;
 	
-	                var vChild = vChildren[i] || noChild
-	                var nextIndex = rootIndex + (vChild.count || 0)
+	                var vChild = vChildren[i] || noChild;
+	                var nextIndex = rootIndex + (vChild.count || 0);
 	
 	                // skip recursion down the tree if there are no nodes down here
 	                if (indexInRange(indices, rootIndex, nextIndex)) {
@@ -4511,14 +4511,14 @@ var WaveformPlaylist =
 	        return false
 	    }
 	
-	    var minIndex = 0
-	    var maxIndex = indices.length - 1
-	    var currentIndex
-	    var currentItem
+	    var minIndex = 0;
+	    var maxIndex = indices.length - 1;
+	    var currentIndex;
+	    var currentItem;
 	
 	    while (minIndex <= maxIndex) {
-	        currentIndex = ((maxIndex + minIndex) / 2) >> 0
-	        currentItem = indices[currentIndex]
+	        currentIndex = ((maxIndex + minIndex) / 2) >> 0;
+	        currentItem = indices[currentIndex];
 	
 	        if (minIndex === maxIndex) {
 	            return currentItem >= left && currentItem <= right
@@ -4543,47 +4543,47 @@ var WaveformPlaylist =
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var applyProperties = __webpack_require__(6)
+	var applyProperties = __webpack_require__(6);
 	
-	var isWidget = __webpack_require__(12)
-	var VPatch = __webpack_require__(46)
+	var isWidget = __webpack_require__(12);
+	var VPatch = __webpack_require__(46);
 	
-	var updateWidget = __webpack_require__(52)
+	var updateWidget = __webpack_require__(52);
 	
-	module.exports = applyPatch
+	module.exports = applyPatch;
 	
 	function applyPatch(vpatch, domNode, renderOptions) {
-	    var type = vpatch.type
-	    var vNode = vpatch.vNode
-	    var patch = vpatch.patch
+	    var type = vpatch.type;
+	    var vNode = vpatch.vNode;
+	    var patch = vpatch.patch;
 	
 	    switch (type) {
 	        case VPatch.REMOVE:
-	            return removeNode(domNode, vNode)
+	            return removeNode(domNode, vNode);
 	        case VPatch.INSERT:
-	            return insertNode(domNode, patch, renderOptions)
+	            return insertNode(domNode, patch, renderOptions);
 	        case VPatch.VTEXT:
-	            return stringPatch(domNode, vNode, patch, renderOptions)
+	            return stringPatch(domNode, vNode, patch, renderOptions);
 	        case VPatch.WIDGET:
-	            return widgetPatch(domNode, vNode, patch, renderOptions)
+	            return widgetPatch(domNode, vNode, patch, renderOptions);
 	        case VPatch.VNODE:
-	            return vNodePatch(domNode, vNode, patch, renderOptions)
+	            return vNodePatch(domNode, vNode, patch, renderOptions);
 	        case VPatch.ORDER:
-	            reorderChildren(domNode, patch)
-	            return domNode
+	            reorderChildren(domNode, patch);
+	            return domNode;
 	        case VPatch.PROPS:
-	            applyProperties(domNode, patch, vNode.properties)
-	            return domNode
+	            applyProperties(domNode, patch, vNode.properties);
+	            return domNode;
 	        case VPatch.THUNK:
 	            return replaceRoot(domNode,
-	                renderOptions.patch(domNode, patch, renderOptions))
+	                renderOptions.patch(domNode, patch, renderOptions));
 	        default:
 	            return domNode
 	    }
 	}
 	
 	function removeNode(domNode, vNode) {
-	    var parentNode = domNode.parentNode
+	    var parentNode = domNode.parentNode;
 	
 	    if (parentNode) {
 	        parentNode.removeChild(domNode)
@@ -4595,7 +4595,7 @@ var WaveformPlaylist =
 	}
 	
 	function insertNode(parentNode, vNode, renderOptions) {
-	    var newNode = renderOptions.render(vNode, renderOptions)
+	    var newNode = renderOptions.render(vNode, renderOptions);
 	
 	    if (parentNode) {
 	        parentNode.appendChild(newNode)
@@ -4605,14 +4605,14 @@ var WaveformPlaylist =
 	}
 	
 	function stringPatch(domNode, leftVNode, vText, renderOptions) {
-	    var newNode
+	    var newNode;
 	
 	    if (domNode.nodeType === 3) {
-	        domNode.replaceData(0, domNode.length, vText.text)
+	        domNode.replaceData(0, domNode.length, vText.text);
 	        newNode = domNode
 	    } else {
-	        var parentNode = domNode.parentNode
-	        newNode = renderOptions.render(vText, renderOptions)
+	        var parentNode = domNode.parentNode;
+	        newNode = renderOptions.render(vText, renderOptions);
 	
 	        if (parentNode && newNode !== domNode) {
 	            parentNode.replaceChild(newNode, domNode)
@@ -4623,8 +4623,8 @@ var WaveformPlaylist =
 	}
 	
 	function widgetPatch(domNode, leftVNode, widget, renderOptions) {
-	    var updating = updateWidget(leftVNode, widget)
-	    var newNode
+	    var updating = updateWidget(leftVNode, widget);
+	    var newNode;
 	
 	    if (updating) {
 	        newNode = widget.update(leftVNode, domNode) || domNode
@@ -4632,7 +4632,7 @@ var WaveformPlaylist =
 	        newNode = renderOptions.render(widget, renderOptions)
 	    }
 	
-	    var parentNode = domNode.parentNode
+	    var parentNode = domNode.parentNode;
 	
 	    if (parentNode && newNode !== domNode) {
 	        parentNode.replaceChild(newNode, domNode)
@@ -4646,8 +4646,8 @@ var WaveformPlaylist =
 	}
 	
 	function vNodePatch(domNode, leftVNode, vNode, renderOptions) {
-	    var parentNode = domNode.parentNode
-	    var newNode = renderOptions.render(vNode, renderOptions)
+	    var parentNode = domNode.parentNode;
+	    var newNode = renderOptions.render(vNode, renderOptions);
 	
 	    if (parentNode && newNode !== domNode) {
 	        parentNode.replaceChild(newNode, domNode)
@@ -4663,25 +4663,25 @@ var WaveformPlaylist =
 	}
 	
 	function reorderChildren(domNode, moves) {
-	    var childNodes = domNode.childNodes
-	    var keyMap = {}
-	    var node
-	    var remove
-	    var insert
+	    var childNodes = domNode.childNodes;
+	    var keyMap = {};
+	    var node;
+	    var remove;
+	    var insert;
 	
 	    for (var i = 0; i < moves.removes.length; i++) {
-	        remove = moves.removes[i]
-	        node = childNodes[remove.from]
+	        remove = moves.removes[i];
+	        node = childNodes[remove.from];
 	        if (remove.key) {
 	            keyMap[remove.key] = node
 	        }
 	        domNode.removeChild(node)
 	    }
 	
-	    var length = childNodes.length
+	    var length = childNodes.length;
 	    for (var j = 0; j < moves.inserts.length; j++) {
-	        insert = moves.inserts[j]
-	        node = keyMap[insert.key]
+	        insert = moves.inserts[j];
+	        node = keyMap[insert.key];
 	        // this is the weirdest bug i've ever seen in webkit
 	        domNode.insertBefore(node, insert.to >= length++ ? null : childNodes[insert.to])
 	    }
@@ -4700,9 +4700,9 @@ var WaveformPlaylist =
 /* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isWidget = __webpack_require__(12)
+	var isWidget = __webpack_require__(12);
 	
-	module.exports = updateWidget
+	module.exports = updateWidget;
 	
 	function updateWidget(a, b) {
 	    if (isWidget(a) && isWidget(b)) {

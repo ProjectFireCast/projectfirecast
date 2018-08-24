@@ -14,7 +14,7 @@ h1{
         font-size: 60px;
         font-family: Walkway;
     }
-    p{
+    p.fancy{
         text-align: center;
          font-size: 25px;
          font-family: Walkway;
@@ -27,8 +27,40 @@ h1{
          font-family: Walkway;
     }
 
+    h2.podcast_title{
+        text-align: left;
+        color: #f08600;
+
+    }
+
+    a.podcast_title:link {
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s ease-in;
+
+    }
+
+    a.podcast_title:visited {
+        text-decoration: none;
+        color: white;
+
+    }
+
+    a.podcast_title:hover {
+        text-decoration: none;
+        -webkit-stroke-width: 5.3px;
+        -webkit-stroke-color: #FFFFFF;
+        -webkit-fill-color: #FFFFFF;
+        text-shadow: 1px 0px 20px #f08600;
+    }
+
+    a.podcast_title:active {
+        text-decoration: none;
+    }
+
     a{
         text-align: center;
+
     }
 
     button{
