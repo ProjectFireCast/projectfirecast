@@ -25,8 +25,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'django_static_jquery',
-    #'firecast.apps.FirecastConfig',
     'firecast',
     'users',
     'studio',

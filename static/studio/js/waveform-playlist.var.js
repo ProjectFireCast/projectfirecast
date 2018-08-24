@@ -35,7 +35,7 @@ var WaveformPlaylist =
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/pages/js/";
+/******/ 	__webpack_require__.p = "/waveform-playlist/js/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -8666,4 +8666,4 @@ var WaveformPlaylist =
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=pages.var.js.map
+//# sourceMappingURL=waveform-playlist.var.js.map

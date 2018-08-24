@@ -40,7 +40,7 @@ if (navigator.getUserMedia) {
       	 	console.log("recorder started");
       	 	record.style.background = "red";
       	 	record.style.color = "black";
-      	 }
+      	 };
 
       	 stop.onclick = function() {
       	 	mediaRecorder.stop();
@@ -48,7 +48,7 @@ if (navigator.getUserMedia) {
       	 	console.log("recorder stopped");
       	 	record.style.background = "";
       	 	record.style.color = "";
-      	 }
+      	 };
 
       	 mediaRecorder.ondataavailable = function(e) {
            console.log("data available");
@@ -100,10 +100,10 @@ function visualize(stream) {
   source.connect(analyser);
   //analyser.connect(audioCtx.destination);
   
-  WIDTH = canvas.width
+  WIDTH = canvas.width;
   HEIGHT = canvas.height;
 
-  draw()
+  draw();
 
   function draw() {
 

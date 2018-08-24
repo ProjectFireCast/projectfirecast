@@ -5,7 +5,7 @@ from .models import Podcast
 class PodcastForm(forms.ModelForm):
     class Meta:
         model = Podcast
-        fields = ( 'title', 'description', 'image', 'audio')
+        fields = ('title', 'description', 'image', 'audio')
 
 
 
