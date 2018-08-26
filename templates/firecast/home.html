@@ -7,7 +7,9 @@
     <meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1">
     <link  href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% static "styles/app.css" %}" rel="stylesheet" type="text/css">    <title>Project FireCast</title>
+    <link href="{% static "styles/app.css" %}" rel="stylesheet" type="text/css">
+
+    <title>Project FireCast</title>
 </head>
 <body>
 
@@ -57,19 +59,35 @@
 		</nav>
 </div>
 
-  {% if user.is_authenticated %}
-    {% include 'firecast/usermenu.html'%}
-{% else %}
- <img src="{% static "app-icons/TestBack3.jpg" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+
+ <img src="{% static "app-icons/TestBack3.png" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+
 
 <!-- Projecting Front Title and some statements -->
 <div class="container" >
     <div class="container-fluid">
-                    <h1>Welcome to Project FireCast</h1>
                     {% if user.is_authenticated %}
-                        <p>Hi {{ user.username }}</p>
-                             <p><a href="{%  url 'account_logout' %}">Logout</a></p>
+                        <h1>Welcome back to FireCast :)</h1>
+                        <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
+
+                          <div class="row"  >
+                          <div class="column">
+                          <a href="{% url 'record' %}"><img src="{% static "app-icons/record.png"%}" alt="Record" style="width:100px"></a>
+                          <p> Record </p>
+                          </div>
+                          <div class="column">
+                          <a href="{% url 'list' %}"><img src="{% static "app-icons/play.png"%}" alt="Play" style="width:100px"></a>
+                          <p> Play </p>
+                          </div>
+                          <div class="column">
+                          <a href="{% url 'upload' %}"><img src="{% static "app-icons/upload.png"%}" alt="Upload" style="width:100px"></a>
+                          <p> Upload </p>
+                          </div>
+                          </div>
+
+                        <p class="fancy"><a href="{%  url 'account_logout' %}">Logout</a></p>
                         {%  else %}
+                        <h1>Welcome to FireCast</h1>
                         <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
                                 <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
                                 <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
@@ -80,9 +98,9 @@
 
       <div class="jumbotron  jumbotron-fluid ">
       <div class="container">
-        <h1 class="display-4">What is FireCast?</h1>
+        <h3 class="display-4">What is FireCast?</h3>
         <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
-          <ul>
+          <!-- <ul>
               <li>
                 <a href="{% url 'record' %}">record</a>
               </li>
@@ -98,12 +116,11 @@
               <li>
                 <a href="{% url 'list' %}">Podcast List</a>
               </li>
-          </ul>
+          </ul> -->
 
       </div>
-
     </div>
-  {% endif %}
+
 
 
 

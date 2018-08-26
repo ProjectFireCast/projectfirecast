@@ -21,17 +21,11 @@
     <link rel="alternate" type="application/rss+xml" title="Waveform Playlist"
           href="https://naomiaro.github.io/waveform-playlist/feed.xml">
     <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
-<link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
-
-
-
+    <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
 </head>
 
-
 <body>
-
-<div class="container">
+<!--nav bar -->
 <div class="container">
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -70,9 +64,9 @@
                                     </a>
                                 </li>
                             {% endif %}
-                        <a class="nav-link " href="{% url 'account_signup' %}">
+                        <a class="nav-link " href="{% url 'usermenu' %}">
 
-                            <button class="btn btn-sm btn-outline-warning" type="button">SignUp</button>
+                            <button class="btn btn-sm btn-outline-warning" type="button">Menu</button>
                         </a>
                         </li>
                     </ul>
@@ -223,8 +217,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="{% static "studio/js/waveform-playlist.var.js" %}"></script>
 <script src="{% static "studio/js/record.js" %}"></script>
-
-<script src="{% static "studio/js/web-audio-editor.js" %}"></script>
 <script src="{% static "studio/js/emitter.js" %}"></script>
 
 
