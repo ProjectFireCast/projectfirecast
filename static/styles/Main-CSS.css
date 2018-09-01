@@ -10,24 +10,24 @@ h1{
         text-align: center;
         padding-top: 78px;
         font-size: 60px;
-        font-family: Walkway;
-    }
+        font-family: Walkway, Helvetica, sans-serif;
+}
     p{
         text-align: center;
          font-size: 25px;
-         font-family: Walkway;
+         font-family: Walkway, Helvetica, sans-serif;
          font-weight: bold;
          font-style: italic;
     }
     h2{
          text-align: center;
          font-size: 30px;
-         font-family: Walkway;
+         font-family: Walkway, Helvetica, sans-serif;
     }
     .username{
         text-align: center;
          font-size: 25px;
-         font-family: "Helvetica Neue";
+         font-family: "Helvetica Neue", Helvetica, sans-serif;
          font-weight: bold;
         color: white;
     }
@@ -50,7 +50,7 @@ h1{
     }
 
     .navbar-brand{
-         font-family: Walkway;
+         font-family: Walkway, Helvetica, sans-serif;
           font-size: 24px;
       }
     .img-fluid {
