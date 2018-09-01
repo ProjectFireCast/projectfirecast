@@ -1,28 +1,21 @@
+{#{% extends 'base.html' %}#}
 {% load staticfiles %}
-{% load socialaccount %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    {% block meta %}
-    {% endblock meta %}
-    {% block link %}
-        <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
-        <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
-    {% endblock link %}
-    <title>
-        {% block title %}
-        {% endblock title %}
-    </title>
+    <meta charset="UTF-8">
+    <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
+    <title>Podcasts</title>
 </head>
 <body>
-
-
-{% block navbar %}
+{% load socialaccount %}
+<!-- NAV BAR -->
 <div class="container">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{% url 'home' %}">
 			<img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="" >
               <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast</a>
 		  </a>
@@ -53,8 +46,8 @@
                         </a>
                       </li>
                 {% endif %}
-                    <a class="nav-link " href="{% url 'account_signup' %}">
-                   <button class="btn btn-sm btn-outline-warning" type="button">SignUp</button>
+                    <a class="nav-link " href="{% url 'usermenu' %}">
+                   <button class="btn btn-sm btn-outline-warning" type="button">Menu</button>
                </a>
 			  </li>
 			</ul>
@@ -62,23 +55,19 @@
 		  </div>
 		</nav>
 </div>
-{% endblock navbar %}
 
-{% block front_title %}
-{% endblock front_title %}
+{%  block content %}
+    <h1>Podcasts</h1>
+    <div class="podcast_detail">
+        <div class="podcast">
+            <img src="{{ podcast.image.url }}"/>
+            <h2>{{ podcast.title}}</h2>
+            <p>{{ podcast.date }}</p>
+            <p>{{ podcast.description }}</p>
+        </div>
+    </div>
 
-{% block content %}
-{% endblock content %}
 
-{% block usermenu %}
-{% endblock usermenu %}
-
-{% block footer %}
-{% endblock footer %}
-
-{% block js %}
-{% endblock js %}
-
+{% endblock %}
 </body>
 </html>
-
