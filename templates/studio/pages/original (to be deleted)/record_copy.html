@@ -1,23 +1,80 @@
-<!-- templates/studio/pages/record.html -->
-{% extends 'base.html' %}
 {% load staticfiles %}
-{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block  link %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image"
+          content="https://raw.githubusercontent.com/naomiaro/waveform-playlist/master/img/stemtracks.png">
+    <meta property="og:image:height" content="401">
+    <meta property="og:image:width" content="1039">
+
+    <title>Record An Audio Track</title>
+    <meta name="description" content="FireCast online podcast recorder and editor">
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+    <link rel="canonical" href="https://naomiaro.github.io/waveform-playlist/record.html">
+    <link rel="alternate" type="application/rss+xml" title="Waveform Playlist"
+          href="https://naomiaro.github.io/waveform-playlist/feed.xml">
     <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
-{% endblock link %}
-{% block title %}
-    Record An Audio Track
-{% endblock title %}
-{% block navbar %}
-    {{ block.super }}
-{% endblock navbar %}
+</head>
 
-{% block content %}
+<body>
+<!--nav bar -->
+<div class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="">
+                    <a style="padding-top: 10px" class="navbar-brand" href="{% url 'home' %}">FireCast</a>
+                </a>
+                <a class="username">
+                    {% if user.is_authenticated %}
+                        Hi {{ user.username }}
+                    {% else %}
+                        Hi guest
+                    {% endif %}
+                </a>
+                <div class="pull-right">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="{% url 'account_logout' %}">
+                                        <button class=" btn btn-sm btn-outline-warning" type="button">Logout</button>
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="{% url 'account_login' %}">
+                                        <button class=" btn btn-sm btn-outline-warning" type="button">Login</button>
+                                    </a>
+                                </li>
+                            {% endif %}
+                        <a class="nav-link " href="{% url 'usermenu' %}">
+
+                            <button class="btn btn-sm btn-outline-warning" type="button">Menu</button>
+                        </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <div class="track-drop"></div>
 
      <header class="site-header">
@@ -148,41 +205,39 @@
             </article>
         </div>
     </div>
+</div>
 
-{% endblock content %}
-
-{% block footer %}
-    <footer class="well well-lg">
+<footer class="well well-lg">
 
     <p>FireCast Studio is a podcast recording website where (once out of beta) you will be able to record, edit and
         share your own podcasts</p>
     <p>FireCast 2018</p>
-    </footer>
-{% endblock footer %}
+</footer>
 
-{% block js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="{% static "studio/js/waveform-playlist.var.js" %}"></script>
-    <script src="{% static "studio/js/record.js" %}"></script>
-    <script src="{% static "studio/js/emitter.js" %}"></script>
-
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-62186746-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-{% endblock js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static "studio/js/waveform-playlist.var.js" %}"></script>
+<script src="{% static "studio/js/record.js" %}"></script>
+<script src="{% static "studio/js/emitter.js" %}"></script>
 
 
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
+    ga('create', 'UA-62186746-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+
+</body>
+
+</html>
