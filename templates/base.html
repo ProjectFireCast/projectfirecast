@@ -22,9 +22,9 @@
 <div class="container">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="#">
+		  <a class="navbar-brand" href="{% url 'home' %}">
 			<img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="" >
-              <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast</a>
+              <a style="padding-top: 10px" class="navbar-brand"  href="{% url 'home' %}" >FireCast</a>
 		  </a>
             <a class="username">
                 {% if user.is_authenticated %}
