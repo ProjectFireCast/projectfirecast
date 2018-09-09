@@ -1,49 +1,19 @@
-<!DOCTYPE html>
-<head>
-    <title>FireCast</title>
-</head>
+<!-- templates/firecast/usermenu.html -->
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load socialaccount %}
 
-<body>
-<h1>Welcome to FireCast</h1>
-<h2> What would you like to do?</h2>
-
-<div class="row">
-  <div class="column">
-    <img src="record.png" alt="Record" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="play.png" alt="Play" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="download.png" alt="Download" style="width:100%">
-  </div>
-</div>
-
-<style>
-    h1 {
-        text-align: center;
-        padding-top: 30px;
-        font-size: 60px;
-        font-family: Walkway;
-    }
-
-        h2 {
-         text-align: center;
-        padding-top: 50px;
-        font-size: 30px;
-        font-family: Walkway;
-    }
-
-    .row {
-      display: flex;
-    }
-
-    .column {
-      flex: 30%;
-      padding: 20px;
-}
-</style>
-
-
-</body>
-</html>
+{% block  link %}
+    {{ block.super }}
+{% endblock link %}
+{% block title %}
+    Menu
+{% endblock title %}
+{% block navbar %}
+    {{ block.super }}
+{% endblock navbar %}
+{% block usermenu %}
+    <h1>Welcome to FireCast!</h1>
+    <h2> What would you like to do?</h2>
+    {% include 'firecast/menu_options.html' %}
+{% endblock usermenu %}

@@ -1,0 +1,27 @@
+<!-- templates/firecast/upload_podcast.html -->
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load socialaccount %}
+
+{% block  link %}
+    <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "studio/css/main.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
+{% endblock link %}
+
+{% block title %}Upload{% endblock title %}
+
+{% block navbar %}
+    {{ block.super }}
+{% endblock navbar %}
+
+{% block content %}
+    <h1> Upload a Podcast</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+  <p><a href="{% url 'usermenu' %}">Return to home</a></p>
+{% endblock %}

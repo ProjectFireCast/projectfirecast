@@ -1,29 +1,30 @@
 {% load staticfiles %}
+{% load socialaccount %}
+
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+    {% block meta %}
+    {% endblock meta %}
+    {% block link %}
+        <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
+        <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
+    {% endblock link %}
+    <title>
+        {% block title %}
+        {% endblock title %}
+    </title>
+</head>
+<body>
 
-  <meta charset="UTF-8">
 
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width = device-width, initial-scale = 1">
-    <link  href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
-  <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
-
-
-    <title>{% block head_title %}{% endblock %}</title>
-    {% block extra_head %}
-    {% endblock %}
-  </head>
-  <body>
-   {% block body %}
-        <!-- NAV BAR -->
- <div class="container">
+{% block navbar %}
+<div class="container">
 	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="{% url 'home' %}">
+		  <a class="navbar-brand" href="#">
 			<img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="" >
-              <a style="padding-top: 10px" class="navbar-brand"  href="{% url 'home' %}" >FireCast</a>
+              <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast</a>
 		  </a>
             <a class="username">
                 {% if user.is_authenticated %}
@@ -35,6 +36,7 @@
 			<span class="navbar-toggler-icon"></span>
 		  </button>
 		  </div>
+
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item active">
@@ -60,29 +62,23 @@
 		  </div>
 		</nav>
 </div>
+{% endblock navbar %}
 
+{% block front_title %}
+{% endblock front_title %}
 
+{% block content %}
+{% endblock content %}
 
+{% block usermenu %}
+{% endblock usermenu %}
 
+{% block footer %}
+{% endblock footer %}
 
+{% block js %}
+{% endblock js %}
 
-
-
-
-
-
-    {% block content %}
-    {% endblock %}
-    {% endblock %}
-    {% block extra_body %}
-    {% endblock %}
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
+

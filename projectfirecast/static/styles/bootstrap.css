@@ -8973,3 +8973,42 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+
+.cover_img{
+    height: auto;
+    width: 100%;
+    padding: 2em;
+}
+
+.podcast{
+    background-color: grey;
+    border: white 1px solid;
+    transition: box-shadow .3s;
+    margin-bottom: 10px;
+}
+
+.podcast:hover{
+    box-shadow: 5px 5px 15px rgba(33,33,33,.2);
+}
+
+
+
+.podcast_text{
+    width: 100%;
+    padding: 3em;
+}
+
+.audio_controls{
+    padding: 1.6em;
+    margin: 2em;
+}
+
+.column-right{
+
+}
+
+audio{
+    cursor: pointer;
+}
+

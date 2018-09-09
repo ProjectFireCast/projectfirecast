@@ -1,91 +1,49 @@
 <!-- templates/firecast/home.html -->
+{% extends 'base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width = device-width, height = device-height, initial-scale = 1">
-    <link  href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% static "styles/Main-CSS.css" %}" rel="stylesheet" type="text/css">
-    <link href="{% static "styles/app.css" %}" rel="stylesheet" type="text/css">    <title>Project FireCast</title>
-</head>
-<body>
-
 {% load socialaccount %}
-<!-- NAV BAR -->
-<div class="container">
-	<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-		  <a class="navbar-brand" href="#">
-			<img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="" >
-              <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast</a>
-		  </a>
-            <a class="username">
-                {% if user.is_authenticated %}
-                    Hi {{ user.username }}
-                {% endif %}
-            </a>
-		<div class="pull-right">
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  </div>
 
-		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-			  <li class="nav-item active">
-                {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="{% url 'account_logout' %}">
-                            <button class=" btn btn-sm btn-outline-warning" type="button">Logout</button>
-                        </a>
-                      </li>
-                    {% else %}
-                      <li class="nav-item">
-                        <a class="nav-link disabled" href="{% url 'account_login' %}">
-                            <button class=" btn btn-sm btn-outline-warning" type="button">Login</button>
-                        </a>
-                      </li>
-                {% endif %}
-                    <a class="nav-link " href="{% url 'account_signup' %}">
-                   <button class="btn btn-sm btn-outline-warning" type="button">SignUp</button>
-               </a>
-			  </li>
-			</ul>
-		  </div>
-		  </div>
-		</nav>
-</div>
+{% block  link %}
+    {{ block.super }}
+{% endblock link %}
 
-  {% if user.is_authenticated %}
-    {% include 'firecast/index.html' %}
-{% else %}
- <img src="{% static "app-icons/TestBack3.jpg" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+{% block title %}
+    Project FireCast
+{% endblock title %}
 
-<!-- Projecting Front Title and some statements -->
-<div class="container" >
-    <div class="container-fluid">
-                    <h1>Welcome to Project FireCast</h1>
-                    {% if user.is_authenticated %}
-                        <p>Hi {{ user.username }}</p>
-                             <p><a href="{%  url 'account_logout' %}">Logout</a></p>
-                        {%  else %}
-                        <p>Don't have a FireCast account? Sign up to get started</p>
-                                <p><a href="{% url 'account_signup' %}">Sign up</a></p>
-                                <p><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
-                        {% endif %}
+{% block navbar %}
+    {{ block.super }}
+{% endblock navbar %}
+
+
+{% block front_title %}
+    <img src="{% static "app-icons/TestBack3.png" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+
+    <div class="container">
+        <div class="container-fluid">
+            {% if user.is_authenticated %}
+                <h1>Welcome back to FireCast :)</h1>
+                <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
+            {% else %}
+                <h1>Welcome to FireCast</h1>
+                <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
+                <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
+                <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
+            {% endif %}
         </div>
-    </div>
-</div>
 
-      <div class="jumbotron  jumbotron-fluid ">
+    </div>
+    {% include 'firecast/menu_options.html' %}
+{% endblock front_title %}
+
+{% block footer %}
+    <div class="jumbotron  jumbotron-fluid ">
       <div class="container">
-        <h1 class="display-4">What is FireCast?</h1>
+        <h3 class="display-4">What is FireCast?</h3>
         <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
       </div>
-
     </div>
-  {% endif %}
+{% endblock footer %}
 
 
 
@@ -96,11 +54,5 @@
 
 
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-  </body>
-</html>
 
 
