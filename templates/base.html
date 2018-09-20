@@ -26,15 +26,10 @@
 			<img src="{% static "app-icons/Taskbar-Logo.png" %}" width="40" height="40" alt="" >
               <a style="padding-top: 10px" class="navbar-brand"  href="#" >FireCast</a>
 		  </a>
-            <a class="username">
-                {% if user.is_authenticated %}
-                    Hi {{ user.username }}
-                {% endif %}
-            </a>
-		<div class="pull-right">
-		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
+		    <div class="pull-right">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
 		  </div>
 
 		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
