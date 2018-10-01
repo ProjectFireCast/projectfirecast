@@ -1,5 +1,16 @@
 
-
+    .btn-group{
+        padding: 0 4px 4px 0;
+    }
+    .btn-solo{
+        height: 3em;
+    }
+    .btn-mute{
+        height: 3em;
+    }
+    .playlist-time-scale{
+        color: white;
+    }
 #playlist {
   margin: 2em 0;
   height: 500px;
@@ -224,6 +235,7 @@ h1{
          font-family: Walkway;
          font-weight: bold;
          color: orange;
+        text-decoration: none;
     }
     h2{
          text-align: left;
@@ -240,9 +252,6 @@ h1{
          color: white;
     }
 
-    a{
-        text-align: center;
-    }
 
     button{
           margin:auto;
