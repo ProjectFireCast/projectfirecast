@@ -79,14 +79,39 @@ h1{
     a.podcast_title:active {
         text-decoration: none;
     }
+    .login{
+        font-family: Walkway;
+        font-size: 25px;
+        text-align: center;
+        color: white;
+    }
+
 
     a{
         text-align: center;
+        color: orange;
+
+    }
+    a:hover{
+        color: white;
+        text-decoration: none;
     }
 
     button{
           margin:auto;
           display:block;
+        font-family: Walkway;
+    }
+
+    .img-fluid {
+        max-width: 100vw;
+        height:100%;
+        width:100%;
+        max-height: 100vh;
+}
+    input.p{
+        padding-right: 50px;
+
     }
 
     form{
@@ -118,7 +143,7 @@ h1{
 }
 
     body {
-        background-color: #666666;
+        background-color: #1b1e21;
     }
 
     p.lead{
@@ -127,4 +152,36 @@ h1{
          font-family: Walkway;
          font-style: italic;
     }
+
+        /* to fix the wonky login forms*/
+    form {
+    width: 80%;
+    margin: 0 auto;
+    }
+
+    label, input {
+        /* in order to define widths */
+        display: inline-block;
+    }
+
+    label {
+        width: 30%;
+        /* positions the label text beside the input */
+        text-align: right;
+    }
+
+    label + input {
+        width: 30%;
+        /* large margin-right to force the next element to the new-line
+           and margin-left to create a gutter between the label and input */
+        margin: 0 30% 0 4%;
+    }
+
+    /* only the submit button is matched by this selector,
+       but to be sure you could use an id or class for that button */
+    input + input {
+        float: right;
+    }
+
+
 

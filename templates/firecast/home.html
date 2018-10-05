@@ -21,15 +21,17 @@
 
     <div class="container">
         <div class="container-fluid">
-            {% if user.is_authenticated %}
-                <h1>Welcome back to FireCast :)</h1>
-                <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
-            {% else %}
-                <h1>Welcome to FireCast</h1>
-                <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
-                <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
-                <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
-            {% endif %}
+            <div class="testing2">
+                {% if user.is_authenticated %}
+                    <h1>Welcome back to FireCast :)</h1>
+                    <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
+                {% else %}
+                    <h1>Welcome to FireCast</h1>
+                    <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
+                    <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
+                    <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
+                {% endif %}
+            </div>
         </div>
 
     </div>
