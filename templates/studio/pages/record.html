@@ -4,14 +4,11 @@
 {% load socialaccount %}
 
 {% block  link %}
+    {{ block.super }}
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    <link href="{% static "styles/bootstrap.css" %}" rel="stylesheet" type="text/css">
     <link href="{% static "studio/css/Record.css" %}" rel="stylesheet" type="text/css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-
 {% endblock link %}
+
 {% block title %}
     Record An Audio Track
 {% endblock title %}
@@ -138,13 +135,13 @@
                     </form>
 
 
-                    <div class="sound-status"></div>
-
-                    <div class="post-content">
-
-
+{#                    <div class="sound-status"></div>#}
+{##}
+{#                    <div class="post-content">#}
+{##}
+{##}
 {#                        <div class="loading-data"></div>#}
-                    </div>
+{#                    </div>#}
 
                 </div>
             </article>
@@ -154,16 +151,17 @@
 {% endblock content %}
 
 {% block footer %}
-    <footer class="well well-lg">
-
-    <p>FireCast Studio is a podcast recording website where (once out of beta) you will be able to record, edit and
-        share your own podcasts</p>
-    <p>FireCast 2018</p>
-    </footer>
+    <br><br><br>
+{#    <footer class="well well-lg">#}
+{##}
+{#    <p>FireCast Studio is a podcast recording website where (once out of beta) you will be able to record, edit and#}
+{#        share your own podcasts</p>#}
+{#    <p>FireCast 2018</p>#}
+{#    </footer>#}
 {% endblock footer %}
 
 {% block js %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {{ block.super }}
     <script src="{% static "studio/js/waveform-playlist.var.js" %}"></script>
     <script src="{% static "studio/js/record.js" %}"></script>
     <script src="{% static "studio/js/emitter.js" %}"></script>

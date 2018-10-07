@@ -10,10 +10,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '3=skqbla)5v!y4)fcf)(mwxe3ab+4plgyi$5fyer8s%t4c68__'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', 'www.firecast.com.au', 'firecast.com.au']
 
 # Application definition
 

@@ -3,10 +3,10 @@
         padding: 0 4px 4px 0;
     }
     .btn-solo{
-        height: 3em;
+        height: 2em;
     }
     .btn-mute{
-        height: 3em;
+        height: 2em;
     }
     .playlist-time-scale{
         color: white;
@@ -339,3 +339,8 @@ h1{
          color: red;
          font-weight: bold;
       }
+
+
+.btn-group > .btn {
+    font-size: .8em;
+}
