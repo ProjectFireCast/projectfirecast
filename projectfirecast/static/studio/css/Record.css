@@ -349,3 +349,8 @@ h1{
          color: red;
          font-weight: bold;
       }
+
+
+.btn-group > .btn {
+    font-size: .8em;
+}
