@@ -39,6 +39,7 @@
                 <div class="col">
                    <div class="podcast_text">
                         <h2 class="podcast_title"><a class="podcast_title" href="{% url 'detail' podcast.slug %}">{{ podcast.title }}</a></h2>
+                       <h2>by {{ podcast.author }}</h2>
                        <p>{{ podcast.date }}</p>
                         <h3>{{podcast.snippet }}</h3>
                     </div>

@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models import CharField, Model
 from django.db import models
 from autoslug import AutoSlugField
+from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
 
@@ -10,7 +11,7 @@ from django.conf import settings
 
 
 class Podcast(models.Model):
-    # author = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, on_delete=models.CASCADE)
+    author = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True)
     slug = AutoSlugField(populate_from='title')
@@ -25,7 +26,7 @@ class Podcast(models.Model):
         return self.title
 
     def snippet(self):
-        return self.description[:200] + '...'
+        return self.description[:400] + '...'
 
 
 
