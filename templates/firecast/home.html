@@ -17,11 +17,11 @@
 
 
 {% block front_title %}
-    <img src="{% static "app-icons/TestBack3.png" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+    <img src="{% static "app-icons/Title-Background.png" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
 
     <div class="container">
         <div class="container-fluid">
-            <div class="testing2">
+            <div class="login-signup">
                 {% if user.is_authenticated %}
                     <h1>Welcome back to FireCast :)</h1>
                     <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>

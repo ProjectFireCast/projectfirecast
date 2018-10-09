@@ -3,13 +3,23 @@
         padding: 0 4px 4px 0;
     }
     .btn-solo{
-        height: 2em;
+        height: 2.2em;
     }
     .btn-mute{
-        height: 2em;
+        height: 2.2em;
     }
     .playlist-time-scale{
         color: white;
+    }
+    .space{
+        padding-bottom: 50px;
+    }
+
+    .record:hover {
+            background-image: url("/static/app-icons/record-h.png");
+    }
+    .recordtext{
+        padding-left: 15px;
     }
 #playlist {
   margin: 2em 0;

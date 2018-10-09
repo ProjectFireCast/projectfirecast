@@ -6,19 +6,13 @@
     font-style: normal;
 }
 
-
-
-
-
-h1{
+    h1{
         text-align: center;
-        padding-top: 80px;
+        padding-top: 90px !important;
         font-size: 60px;
         font-family: Walkway;
         color: orange;
         }
-
-
 
     p{
         text-align: center;
@@ -86,7 +80,6 @@ h1{
         color: white;
     }
 
-
     a{
         text-align: center;
         color: orange;
@@ -122,10 +115,25 @@ h1{
         padding-top: 300px;
     }
 
+
     .navbar-brand{
          font-family: Walkway;
           font-size: 24px;
       }
+
+    .navbar-pic-link {
+      display: inline-block;
+      padding-top: 0.3125rem;
+      padding-bottom: 0.3125rem;
+      margin-right: 1rem;
+      font-size: 1.25rem;
+      line-height: inherit;
+      white-space: nowrap;
+    }
+
+    a.record:hover {
+        background-image: url("/static/app-icons/record-h.png");
+    }
     .img-fluid {
       position: relative;
       top: 0;
@@ -183,9 +191,19 @@ h1{
         float: right;
     }
 
-#id_remember {
-    width: auto;
-}
+    /* fixes remember box being of in space */
+    #id_remember{
+        width: auto;
+    }
+    /* fixes the text issues with the sign-up page */
+    ul li {
+        font-family: walkway;
+        color: white;
+		list-style:none;
+		margin-bottom:5px;
+		text-align: center;
+		text-indent: -12px;
+    }
 
 
 
