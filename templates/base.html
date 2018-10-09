@@ -41,6 +41,21 @@
 			  <li class="nav-item active">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="navbar-pic-link record" href="{% url 'record' %}">
+                            <img src="{% static "app-icons/record.png" %}" width="40" height="40" alt="" >
+		                </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-pic-link" href="{% url 'list' %}">
+                            <img src="{% static "app-icons/play.png" %}" width="40" height="40" alt="" >
+		                </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-pic-link" href="{% url 'upload' %}">
+                            <img src="{% static "app-icons/upload.png" %}" width="40" height="40" alt="" >
+		                </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link disabled" href="{% url 'account_logout' %}">
                             <button class=" btn btn-sm btn-outline-warning" type="button">Logout</button>
                         </a>
@@ -59,6 +74,7 @@
                         </a>
                     {% endif %}
 			  </li>
+
 			</ul>
 		  </div>
 		  </div>
