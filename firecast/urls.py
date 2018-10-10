@@ -4,8 +4,6 @@ from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
-#app_name = 'podcasts'
-
 urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
     path('menu/', views.UserMenuView.as_view(), name='usermenu'),
@@ -13,7 +11,7 @@ urlpatterns = [
     path('podcasts/list/', views.podcast_list, name='list'),
     path('upload/', views.create_podcast, name='upload'),
     path('podcast/detail/<slug:slug>', views.podcast_detail, name='detail'),
-    #url(r'podcasts/(?P<slug>[-\w]+)$', views.podcast_detail, name='detail'),
+    path('legal/privacy', views.PrivacyPolicyView.as_view(), name='privacy'),
 ]
 
 if settings.DEBUG:
