@@ -17,8 +17,11 @@ class UserMenuView(TemplateView):
     template_name = 'firecast/usermenu.html'
 
 
+class PrivacyPolicyView(TemplateView):
+    template_name = 'socialaccount/privacy_policy.html'
 
-# login_required(login_url="/accounts/login"
+
+@login_required(login_url="/accounts/login")
 def create_podcast(request):
     if request.method == 'POST':
         form = PodcastForm(request.POST, request.FILES)
