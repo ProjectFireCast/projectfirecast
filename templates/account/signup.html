@@ -9,6 +9,7 @@
 
 <p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign in here</a>.{% endblocktrans %}</p>
 <p><a href="{% provider_login_url 'google' %}">Or login with your google account</a></p>
+    <p>Please read our licence agreement before signing up<a href="{% url '' %}"></a></p>
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
