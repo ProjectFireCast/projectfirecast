@@ -23,13 +23,14 @@
         <div class="container-fluid">
             <div class="login-signup">
                 {% if user.is_authenticated %}
-                    <h1>Welcome back to FireCast :)</h1>
+                    <h1>Welcome back to FireCast Studio :)</h1>
                     <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
                 {% else %}
-                    <h1>Welcome to FireCast</h1>
-                    <p class="fancy">Don't have a FireCast account? Sign up to get started</p>
+                    <h1>Welcome to FireCast Studio</h1>
+                    <p class="fancy">Don't have a FireCast Studio account? Sign up to get started</p>
                     <p class="fancy"><a href="{% url 'account_signup' %}">Sign up</a></p>
                     <p class="fancy"><a href="{% provider_login_url 'google' %}">Login with your google account</a></p>
+
                 {% endif %}
             </div>
         </div>
@@ -41,9 +42,13 @@
 {% block footer %}
     <div class="jumbotron  jumbotron-fluid ">
       <div class="container">
-        <h3 class="display-4">What is FireCast?</h3>
+        <h3 class="display-4">What is FireCast Studio?</h3>
         <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
       </div>
+    </div>
+    <div>
+        <p>if you are lucky enough to be admin you may pass</p>
+        <p><a href="{% url 'admin:index' %}">Cliquez Ici</a></p>
     </div>
 {% endblock footer %}
 
