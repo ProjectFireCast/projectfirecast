@@ -6,6 +6,22 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Regular.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open_Sans';
+    src: url('../fonts/Open_Sans/OpenSans-Light.woff') format('woff');
+    src: url('../fonts/Open_Sans/OpenSans-Light.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
     h1{
         text-align: center;
         padding-top: 90px !important;
@@ -22,6 +38,11 @@
         color: white;
         }
 
+    p.legal{
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+
     p.fancy{
         text-align: center;
          font-size: 25px;
@@ -30,6 +51,19 @@
          font-style: italic;
         color: white;
         }
+    p.left, p.date{
+        text-align: left;
+        font-size: 1.1em;
+        font-family: Open_Sans;
+        font-weight: normal;
+        color: #e9e9e9;
+    }
+
+    p.date{
+        font-family: Walkway, Helvetica, sans-serif;
+        font-size: 0.9em;
+        color: #2a2a2a;
+    }
 
     h2{
          text-align: center;
@@ -39,9 +73,19 @@
 
     h2.podcast_title{
         text-align: left;
-        color: #f08600;
+        font-weight: bold;
+        color: #e9e9e9;
 
     }
+
+    h4.podcast_author{
+        text-align: left;
+        font-family: Walkway;
+        font-size: 24px;
+        color: #2a2a2a;
+
+    }
+
 
     h3{
        text-align: center;

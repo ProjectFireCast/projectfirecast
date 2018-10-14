@@ -19,8 +19,8 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <button class="btn btn-lg btn-outline-warning" type="submit">Upload podcast</button>
   </form>
 
-  <p><a href="{% url 'usermenu' %}">Return to home</a></p>
+    <p><a href="{% url 'usermenu' %}">Cancel</a></p>
 {% endblock %}

@@ -2,21 +2,29 @@
 {% load socialaccount %}
 {% load i18n %}
 
+{% block title %}
+    Sign Up with FireCast
+{% endblock %}
+
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
 <h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign in here</a>.{% endblocktrans %}</p>
-<p><a href="{% provider_login_url 'google' %}">Or login with your google account</a></p>
-    <p>Please read our licence agreement before signing up<a href="{% url '' %}"></a></p>
+<p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign in</a>{% endblocktrans %}</p>
+<p>New to FireCast? Login using social media <a href="{% provider_login_url 'google' %}" class="fa fa-google"></a>
+
+    <p>or</p>
+    <p>Complete the signup form below:</p>
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+
+    <p class="legal"><a href="{% url 'privacy' %}">Please read the licence agreement before signing up</a></p>
+  <button class="btn btn-lg btn-outline-warning" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
 
 

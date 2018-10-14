@@ -27,14 +27,14 @@ def create_podcast(request):
         form = PodcastForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('usermenu')
+            return redirect('list')
     else:
         form = forms.PodcastForm()
     return render(request, 'firecast/upload_podcast.html', {'form': form})
 
 
 def podcast_list(request):
-    podcasts = Podcast.objects.all().order_by('date')
+    podcasts = Podcast.objects.all().order_by('-date')
     return render(request, 'firecast/podcast_list.html', {'podcasts': podcasts})
 
 
