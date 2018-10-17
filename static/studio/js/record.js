@@ -31,7 +31,7 @@ if (navigator.mediaDevices) {
 
 playlist = WaveformPlaylist.init({
   samplesPerPixel: 5000,
-  zoomLevels: [1000, 5000, 9000],
+  zoomLevels: [500, 1000, 3000, 5000],
   waveHeight: 100,
   container: document.getElementById("playlist"),
   state: 'cursor',
@@ -40,10 +40,13 @@ playlist = WaveformPlaylist.init({
     timeColor: 'grey',
     fadeColor: 'black'
   },
+    timescale:true,
   controls: {
     show: true, //whether or not to include the track controls
     width: 200 //width of controls in pixels
-  }
+  },
+    seekStyle: 'line',
+
 });
 
 //initialize the WAV exporter.

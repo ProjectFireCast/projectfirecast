@@ -13,10 +13,10 @@ from django.conf import settings
 class Podcast(models.Model):
     author = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
-    description = models.TextField(null=True)
+    description = models.TextField(null=True, max_length=500)
     slug = AutoSlugField(populate_from='title')
     date = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='images/', default='default.png', blank=True)
+    image = models.ImageField(upload_to='images/', default='images/default.png', blank=True)
     audio = models.FileField(upload_to='audio/', validators=[FileExtensionValidator(allowed_extensions=['wav', 'mp3', 'ogg'])])
 
     def publish(self):

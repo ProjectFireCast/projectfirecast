@@ -196,6 +196,7 @@
 
     body {
         background-color: #1b1e21;
+        overflow-x: hidden;
     }
 
     p.lead{
@@ -249,5 +250,29 @@
 		text-indent: -12px;
     }
 
+.google-button {
+    background-color: #c6c6c6;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 12px 50px 12px 30px; /* Some padding */
+    font-family: Open_Sans;
+    font-size: 16px; /* Set a font size */
+    font-weight: normal;
+    margin-bottom: 20px;
 
+
+    border: grey 2px solid;
+    /*box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.05);*/
+    transition-property: background-color, border;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+}
+.google-button:hover{
+    border: orange 2px solid;
+    background-color: #ffffff;
+}
+
+#id_remember {
+    margin-left: 10px;
+}
 

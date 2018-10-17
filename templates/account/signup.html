@@ -11,11 +11,12 @@
 {% block content %}
 <h1>{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign in</a>{% endblocktrans %}</p>
-<p>New to FireCast? Login using social media <a href="{% provider_login_url 'google' %}" class="fa fa-google"></a>
-
-    <p>or</p>
-    <p>Complete the signup form below:</p>
+<p  class="legal">{% blocktrans %}Already have an account? <a href="{{ login_url }}">Sign in</a>{% endblocktrans %}</p>
+    <p>New to FireCast? Hey there :)</p><br>
+<form action="{% provider_login_url 'google' %}">
+        <button class="google-button"><i class="fab fa-google" style="padding-right: 20px;"></i>Sign in with Google</button>
+    </form>
+    <br><p>Or complete the form below:</p>
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
   {{ form.as_p }}

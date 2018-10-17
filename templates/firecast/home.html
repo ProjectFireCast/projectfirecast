@@ -17,7 +17,8 @@
 
 
 {% block front_title %}
-    <img src="{% static "app-icons/Title-Background.png" %}" style="padding-top: 65px"  class="img-fluid" alt="Responsive image">
+    <img src="{% static "app-icons/Title-Background.png" %}" style="padding-top: 65px" class="img-fluid"
+         alt="Responsive image">
 
     <div class="container">
         <div class="container-fluid">
@@ -27,8 +28,13 @@
                     <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
                 {% else %}
                     <h1>Welcome to FireCast Studio</h1>
-                    <p class="fancy">Don't have a FireCast Studio account? <a href="{% url 'account_signup' %}">Sign up to get started</a></p>
-                    <p><a href="{% provider_login_url 'google' %}" class="fa fa-google"></a></p>
+                    <p class="fancy">Don't have a FireCast Studio account? <a href="{% url 'account_signup' %}">Sign up
+                        to get started</a></p>
+
+                    <form action="{% provider_login_url 'google' %}">
+                    <button class="google-button"><i class="fab fa-google" style="padding-right: 20px;"></i>Sign in with Google</button>
+                    </form>
+
                 {% endif %}
             </div>
         </div>
@@ -39,10 +45,11 @@
 
 {% block footer %}
     <div class="jumbotron  jumbotron-fluid ">
-      <div class="container">
-        <h3 class="display-4">What is FireCast Studio?</h3>
-        <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record, edit and share your own podcasts</p>
-      </div>
+        <div class="container">
+            <h3 class="display-4">What is FireCast Studio?</h3>
+            <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record,
+                edit and share your own podcasts</p>
+        </div>
     </div>
     <div>
         <p>if you are lucky enough to be admin you may pass</p>

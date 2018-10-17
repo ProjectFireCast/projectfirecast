@@ -9,32 +9,32 @@
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
-{% get_providers as socialaccount_providers %}
+    <h1>{% trans "Sign In" %}</h1>
+    {% get_providers as socialaccount_providers %}
 
-    <p>Using social media <a href="{% provider_login_url 'google' %}" class="fa fa-google"></a>
-{% if socialaccount_providers %}
-    <p>or</p>
-        <p class="login">{% blocktrans with site.name as site_name %}With your FireCast Studio login{% endblocktrans %}</p>
+
+    {% if socialaccount_providers %}
+        <p class="login">{% blocktrans with site.name as site_name %}{% endblocktrans %}</p>
 
 
     {% else %}
         <p>{% blocktrans %}If you have not created an account yet, then please
-        <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
+            <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+    {% endif %}
 
     <form class="login" method="POST" action="{% url 'account_login' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}"  value="{{ redirect_field_value }}" />
-      {% endif %}
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
 
-        <button class=" btn btn-lg btn-outline-warning"  type="submit">{% trans "Sign In" %}</button>
-        <br><br><p class="legal"><a href="{% url 'account_reset_password' %}">{% trans "Forgot your password?" %}</a></p>
-
-
+        <button class=" btn btn-lg btn-outline-warning" type="submit">{% trans "Sign In" %}</button>
+        <br><br>
+        <p class="legal"><a href="{% url 'account_reset_password' %}">{% trans "Forgot your password?" %}</a></p>
     </form>
-
+<form action="{% provider_login_url 'google' %}">
+        <button class="google-button"><i class="fab fa-google" style="padding-right: 20px;"></i>Sign in with Google</button>
+    </form>
 
 {% endblock %}

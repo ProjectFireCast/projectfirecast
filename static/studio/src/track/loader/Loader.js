@@ -1,4 +1,4 @@
-import EventEmitter from "../";
+import EventEmitter from 'event-emitter';
 
 export const STATE_UNINITIALIZED = 0;
 export const STATE_LOADING = 1;
