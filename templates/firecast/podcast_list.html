@@ -21,30 +21,29 @@
     <h1>Podcasts</h1>
     <div class="container">
         {% for podcast in podcasts %}
+
             <div class="podcast">
                 <div class="row justify-content-center">
-                    <div class="row">
-                        <div class="col-6">
-                            <img class="cover_img" src="{{ podcast.image.url }}"/>
-                        </div>
-                        <div class="col-6">
-                            <div class="podcast_text">
-                                {#<h2 class="podcast_title"><a class="podcast_title" href="{% url 'detail' podcast.slug %}">{{ podcast.title }}</a></h2>#}
-                                <h2 class="podcast_title">{{ podcast.title }}</h2>
-                                <h4 class="podcast_author">by {{ podcast.author }}</h4>
-                                <p class="date">{{ podcast.date }}</p>
-                                <p class="left">{{ podcast.description }}</p>
-                            </div>
-                        </div>
+                    <div class="row-4">
+                        <img class="cover_img" src="{{ podcast.image.url }}"/>
                     </div>
-                    <div class="row">
-                        <div class="audio_controls">
-                            <audio controls>
+                        <div class="row-4">
+                             <div class="podcast_text">
+                                 {#<h2 class="podcast_title"><a class="podcast_title" href="{% url 'detail' podcast.slug %}">{{ podcast.title }}</a></h2>#}
+                               <h2 class="podcast_title">{{ podcast.title }}</h2>
+                               <h4 class="podcast_author">by {{ podcast.author }}</h4>
+                               <p class="date">{{ podcast.date }}</p>
+                               <p class="left">{{podcast.description }}</p>
+                             </div>
+                        </div>
+                    <div class="row-4">
+                      <div class="audio_controls">
+                                 <audio controls>
                                 <source src="{{ podcast.audio.url }}" type="audio/wav">
                                 <source src="{{ podcast.audio.url }}" type="audio/mp3">
                                 <source src="{{ podcast.audio.url }}" type="audio/ogg">
                             </audio>
-                        </div>
+                      </div>
                     </div>
                 </div>
             </div>

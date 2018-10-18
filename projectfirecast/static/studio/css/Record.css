@@ -21,6 +21,14 @@
     .recordtext{
         padding-left: 15px;
     }
+    /* fixes time code align issue */
+    .form-inline{
+        margin: 0px;
+    }
+    .audio-pos{
+        width: 15%
+    }
+
 
 #playlist {
     margin: 2em 0;

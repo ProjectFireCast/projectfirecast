@@ -69,6 +69,7 @@
          text-align: center;
          font-size: 30px;
          font-family: Walkway;
+        color: orange;
         }
 
     h2.podcast_title{
@@ -91,6 +92,14 @@
        text-align: center;
          font-size: 30px;
          font-family: Walkway;
+        color: orange;
+    }
+
+
+    h4{
+        font-family: walkway;
+        color: orange;
+        text-align: center;
     }
 
     a.podcast_title:link {
@@ -248,6 +257,12 @@
 		margin-bottom:5px;
 		text-align: center;
 		text-indent: -12px;
+    }
+    ul{
+        padding-left: 5px;
+    }
+    .signup{
+        padding-bottom: 35px;
     }
 
 .google-button {
