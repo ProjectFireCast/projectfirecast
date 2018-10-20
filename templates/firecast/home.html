@@ -17,44 +17,87 @@
 
 
 {% block front_title %}
-    <img src="{% static "app-icons/Title-Background.png" %}" style="padding-top: 65px" class="img-fluid"
-         alt="Responsive image">
 
-    <div class="container">
-        <div class="container-fluid">
-            <div class="login-signup">
-                {% if user.is_authenticated %}
-                    <h1>Welcome back to FireCast Studio :)</h1>
-                    <p class="fancy">Hey {{ user.username }}! What do you wanna do?</p>
-                {% else %}
-                    <h1>Welcome to FireCast Studio</h1>
-                    <p class="fancy">Don't have a FireCast Studio account? <a href="{% url 'account_signup' %}">Sign up
-                        to get started</a></p>
 
-                    <form action="{% provider_login_url 'google' %}">
-                    <button class="google-button"><i class="fab fa-google" style="padding-right: 20px;"></i>Sign in with Google</button>
-                    </form>
-
-                {% endif %}
+    <!-- the main carousel on the home page -->
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide responsive" src="{% static "app-icons/Carousel-1.jpeg" %}" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>FireCast Studio</h1>
+                <p style="color: white">Your new place to Record, Edit, Upload and share your podcasts</p>
+                <p><a class="btn btn-lg btn-primary btn-outline-warning" href="{% url 'account_login' %}" role="button">Sign In</a></p>
+              </div>
             </div>
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide" src="{% static "app-icons/Carousel-1.jpeg" %}" alt="Second slide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>No Account Required To Start Recording</h1>
+                <p style="color: white">Unlike some website's, At FireCast Studio we don't require you to sign up to start recording your podcast!</p>
+                <p><a class="btn btn-lg btn-primary btn-outline-warning" href="{% url 'record' %}" role="button">Start Recording Now!</a></p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide" src="{% static "app-icons/Carousel-1.jpeg" %}" alt="Third slide">
+            <div class="container">
+              <div class="carousel-caption text-right">
+                <h1>Sign Up To Get More </h1>
+                <p style="color: white">By siging up for FireCast Studio, you then get access to Uploading and Browsing user made podcasts</p>
+                <p><a class="btn btn-lg btn-primary btn-outline-warning" href="{% url 'account_signup' %}" role="button">Sign Up Now!</a></p>
+              </div>
+            </div>
+          </div>
         </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+</div>
 
-    </div>
-    {% include 'firecast/menu_options.html' %}
+<!-- End Main Carousel -->
+
+<!-- Start mini explanation on what firecast is -->
+        <div class="row">
+          <div class="col-lg-4 ">
+            <img class="rounded-circle" src="{% static "app-icons/Record_image.png" %}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Record</h2>
+            <p>We have a fully fledged recording studio, Drag and Drop in flies that you want, change the volume on indervidual tracks plus much more</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4 ">
+            <img class="rounded-circle" src="{% static "app-icons/Upload_image.png" %}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Upload</h2>
+            <p>Once you have finished creating your podcast, You can then upload it to the FireCast Stuido Server where it is kept secure in the cloud!</p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4 ">
+            <img class="rounded-circle" src="{% static "app-icons/Play_image.png" %}" alt="Generic placeholder image" width="140" height="140">
+            <h2>Browse</h2>
+              <p>Have a browse through the podcasts that the FireCast Stuido users have uploaded</p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    <!-- End mini explanation -->
+
 {% endblock front_title %}
 
 {% block footer %}
-    <div class="jumbotron  jumbotron-fluid ">
-        <div class="container">
-            <h3 class="display-4">What is FireCast Studio?</h3>
-            <p class="lead">This is a podcast recording website where (once out of beta) you will be able to record,
-                edit and share your own podcasts</p>
-        </div>
-    </div>
-    <div>
-        <p>if you are lucky enough to be admin you may pass</p>
-        <p><a href="{% url 'admin:index' %}">Cliquez Ici</a></p>
-    </div>
+     <footer class="container footer">
+        <p class="float-right"><a href="{% url 'admin:index' %}">...</a></p>
+        <p>&copy; 2018-2019 Project FireCast Team &middot; <a href="{% url 'privacy' %}">Privacy</a> &middot;</p>
+      </footer>
+
 {% endblock footer %}
 
 
