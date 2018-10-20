@@ -5,19 +5,19 @@
       <a href="{% url "record" %}">
           <img src="{% static "app-icons/record.png"%}" alt="Record" style="width:100%">
       </a>
-      <p> Record </p>
+      <a href="{% url 'record' %}"><p>Record</p></a>
   </div>
   <div class="col-sm-4">
-        <a href="{% url "list" %}">
+        <a href="{% url "listen" %}">
     <img src="{% static "app-icons/play.png"%}" alt="Play" style="width:100%">
         </a>
-       <p> Listen </p>
+      <a href="{% url 'listen' %}"><p>Listen</p></a>
   </div>
   <div class="col-sm-4">
        <a href="{% url "upload" %}">
     <img src="{% static "app-icons/upload.png"%}" alt="Upload" style="width:100%">
            </a>
-       <p> Upload </p>
+      <a href="{% url 'upload' %}"><p>Upload</p></a>
   </div>
 </div>
 

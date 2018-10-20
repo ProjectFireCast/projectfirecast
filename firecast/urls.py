@@ -8,8 +8,7 @@ urlpatterns = [
     path('', views.HomePageView.as_view(), name='home'),
     path('menu/', views.UserMenuView.as_view(), name='usermenu'),
     path('podcast/upload/', views.create_podcast, name='upload'),
-    path('podcasts/list/', views.podcast_list, name='list'),
-    path('upload/', views.create_podcast, name='upload'),
+    path('podcast/listen/', views.podcast_listen, name='listen'),
     path('podcast/detail/<slug:slug>', views.podcast_detail, name='detail'),
     path('legal/privacy', views.PrivacyPolicyView.as_view(), name='privacy'),
 ]
