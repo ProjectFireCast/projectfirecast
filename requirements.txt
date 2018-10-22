@@ -9,6 +9,7 @@ django-autoslug-iplweb==1.9.4
 django-mptt==0.8.7
 django-polymorphic==2.0.2
 django-sslserver==0.20
+django-widget-tweaks==1.4.3
 easy-thumbnails==2.5
 gunicorn==19.8.1
 idna==2.6

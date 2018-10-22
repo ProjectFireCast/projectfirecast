@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.facebook',
+    'widget_tweaks',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

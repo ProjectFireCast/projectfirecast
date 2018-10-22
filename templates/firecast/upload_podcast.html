@@ -2,6 +2,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% load socialaccount %}
+{% load widget_tweaks %}
 
 {% block  link %}
     <link href="{% static "studio/css/Record.css" %}" rel="stylesheet" type="text/css">
@@ -22,5 +23,16 @@
     <button class="btn btn-lg btn-outline-warning" type="submit">Upload podcast</button>
   </form>
 
+
     <p><a href="{% url 'usermenu' %}">Cancel</a></p>
 {% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+    $(document).ready(function() {
+    //do jQuery stuff when DOM is ready
+        $('form').areYouSure();
+    });
+    </script>
+{% endblock js %}
