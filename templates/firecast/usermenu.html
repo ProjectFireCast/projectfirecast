@@ -4,7 +4,6 @@
 {% load socialaccount %}
 
 {% block  link %}
-    <link href="{% static "studio/css/Record.css" %}" rel="stylesheet" type="text/css">
     {{ block.super }}
 {% endblock link %}
 {% block title %}
@@ -14,7 +13,5 @@
     {{ block.super }}
 {% endblock navbar %}
 {% block usermenu %}
-    <h1>Welcome to FireCast Studio!</h1>
-    <h2> What would you like to do?</h2>
-    {% include 'firecast/menu_options.html' %}
+    {% include 'firecast/mainmenu.html' %}
 {% endblock usermenu %}
