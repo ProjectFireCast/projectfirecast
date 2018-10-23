@@ -431,3 +431,23 @@ h1{
         border-top-color: #FF0000;
         border-right-color: #FF0000;
     }
+
+.grow {
+  padding: 5px 5px 5px 5px;
+  border-radius: 0px;
+  height: 30px;
+  width: 100%;
+  margin: 5px 1% 5px 1%;
+  position: relative;
+  transition: height 1s ease;
+  -webkit-transition: height 1s;
+  text-align: left;
+  overflow: hidden;
+    cursor: pointer;
+}
+.grow:hover {
+  height: 100%;
+    width: 100%;
+    transition: height 3s ease;
+  -webkit-transition: height 3s ease;
+}
