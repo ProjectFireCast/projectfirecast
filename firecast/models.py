@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.core.validators import FileExtensionValidator
 from django.contrib.auth.models import User
 from django.db.models import CharField, Model
@@ -8,10 +9,12 @@ from django.conf import settings
 
 
 # Create your models here.
+from users.models import CustomUser
 
 
 class Podcast(models.Model):
     author = models.CharField(max_length=100)
+    # author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(null=True, max_length=500)
     slug = AutoSlugField(populate_from='title')
@@ -27,7 +30,6 @@ class Podcast(models.Model):
 
     def snippet(self):
         return self.description[:400] + '...'
-
 
 
 

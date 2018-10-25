@@ -1,24 +1,25 @@
 {% load staticfiles %}
 
 <div class="row">
-  <div class="column">
-      <a href="{% url "record" %}">
-          <img src="{% static "app-icons/record.png"%}" alt="Record" style="width:100%">
-      </a>
-      <p><a href="{% url "record" %}">Record </a></p>
-  </div>
-  <div class="column">
-        <a href="{% url "listen" %}">
-    <img src="{% static "app-icons/play.png"%}" alt="Play" style="width:100%">
+    <div class="column">
+        <a href="{% url "record" %}">
+            <img src="{% static "app-icons/record.png" %}" alt="Record" style="width:100%">
         </a>
-      <p><a href="{% url "listen" %}">Listen </a></p>
-  </div>
-  <div class="column">
-       <a href="{% url "upload" %}">
-    <img src="{% static "app-icons/upload.png"%}" alt="Upload" style="width:100%">
-           </a>
-      <p><a href="{% url "upload" %}">Upload </a></p>
-  </div>
+        <p><a href="{% url "record" %}">Record </a></p>
+    </div>
+    <div class="column">
+        <a href="{% url "upload" %}">
+            <img src="{% static "app-icons/upload.png" %}" alt="Upload" style="width:100%">
+        </a>
+        <p><a href="{% url "upload" %}">Upload </a></p>
+    </div>
+    <div class="column">
+        <a href="{% url "listen" %}">
+            <img src="{% static "app-icons/play.png" %}" alt="Play" style="width:100%">
+        </a>
+        <p><a href="{% url "listen" %}">Listen </a></p>
+    </div>
+
 </div>
 
 <style>
@@ -31,35 +32,37 @@
         color: orange;
     }
 
-        h2 {
-         text-align: center;
+    h2 {
+        text-align: center;
         padding-top: 50px;
         font-size: 30px;
         font-family: Walkway, Helvetica, sans-serif;
         color: orange;
     }
-        p{
+
+    p {
         text-align: center;
         font-size: 25px;
         font-family: Walkway, Helvetica, sans-serif;
         color: black;
-        }
+    }
 
     .row {
-      width: 101.1%;
+        width: 101.1%;
         align-content: center;
-      background-color: rgba(255, 255, 255, 0.7);
+        background-color: rgba(255, 255, 255, 0.7);
     }
 
     .column {
-      flex: 30%;
-      padding: 120px;
-}
-    body {
-         background-color: #666666;
-}
+        flex: 30%;
+        padding: 120px;
+    }
 
-    .row > a{
+    body {
+        background-color: #666666;
+    }
+
+    .row > a {
         color: #666666;
     }
 
