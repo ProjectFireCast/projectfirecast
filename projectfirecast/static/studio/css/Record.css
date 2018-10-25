@@ -40,11 +40,11 @@
     margin: 2em 0;
     width: auto;
     height: auto;
-    min-height: 150px;
+    min-height: 450px;
+    padding-bottom: 125px;
     background-color: #1B1B1B;
     overflow-y: auto;
     border-radius: 4px;
-
 }
 
 .playlist .playlist-time-scale {
@@ -550,7 +550,7 @@ a.btn-download-link {
 }
 
 details {
-    border: 1px solid #aaa;
+    /*border: 1px solid #aaa;*/
     border-radius: 4px;
     padding: .5em .5em 0;
     z-index: inherit;
@@ -578,7 +578,7 @@ summary:focus{
       /*outline: 1px solid orange;*/
     outline: none;
     border-radius: 4px;
-    border: 2px solid orange;
+    /*border: 2px solid orange;*/
 }
 
 p.help {
