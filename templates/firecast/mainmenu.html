@@ -1,35 +1,35 @@
 {% load staticfiles %}
 
-<div id = "overlay">
-<div id = "wrapper">
-<div id = "header">
-	<img src="{% static "app-icons/firecastwide.png"%}" alt="Record" style="width:50%" >
-</div>
-    <div id = "text">
-    <h1>Welcome to FireCast Studio!</h1>
-    <h2> What would you like to do?</h2>
+<div id="overlay">
+    <div id="wrapper">
+        <div id="header">
+            <img src="{% static "app-icons/firecastwide.png" %}" alt="Record" style="width:50%">
+        </div>
+        <div id="text">
+            <h1>Welcome to FireCast Studio!</h1>
+            <h2> What would you like to do?</h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                <a href="{% url "record" %}">
+                    <img src="{% static "app-icons/record.png" %}" alt="Record" style="width:100%">
+                </a>
+                <p><a href="{% url "record" %}">Record </a></p>
+            </div>
+            <div class="column">
+                <a href="{% url "upload" %}">
+                    <img src="{% static "app-icons/upload.png" %}" alt="Upload" style="width:100%">
+                </a>
+                <p><a href="{% url "upload" %}">Upload </a></p>
+            </div>
+            <div class="column">
+                <a href="{% url "listen" %}">
+                    <img src="{% static "app-icons/play.png" %}" alt="Play" style="width:100%">
+                </a>
+                <p><a href="{% url "listen" %}">Listen </a></p>
+            </div>
+        </div>
     </div>
-<div class="row">
-  <div class="column">
-      <a href="{% url "record" %}">
-          <img src="{% static "app-icons/record.png"%}" alt="Record" style="width:100%">
-      </a>
-      <p><a href="{% url "record" %}">Record </a></p>
-  </div>
-  <div class="column">
-        <a href="{% url "listen" %}">
-    <img src="{% static "app-icons/play.png"%}" alt="Play" style="width:100%">
-        </a>
-      <p><a href="{% url "listen" %}">Listen </a></p>
-  </div>
-  <div class="column">
-       <a href="{% url "upload" %}">
-    <img src="{% static "app-icons/upload.png"%}" alt="Upload" style="width:100%">
-           </a>
-      <p><a href="{% url "upload" %}">Upload </a></p>
-  </div>
-</div>
-</div>
 </div>
 
 <style>
@@ -42,35 +42,37 @@
         display: inline;
     }
 
-        h2 {
-         text-align: center;
+    h2 {
+        text-align: center;
         font-size: 30px;
         font-family: Walkway, Helvetica, sans-serif;
         color: orange;
         padding-top: 20px;
     }
-        p{
+
+    p {
         text-align: center;
         font-size: 25px;
         font-family: Walkway, Helvetica, sans-serif;
         color: orange;
-        }
+    }
 
     .row {
-      width: auto;
+        width: auto;
         align-content: center;
     }
 
     .column {
-      flex: 30%;
-      padding: 20px;
-}
+        flex: 30%;
+        padding: 20px;
+    }
+
     body {
         background-image: url("{% static "app-icons/TestBack3.jpg"%}");
         background-size: 100%;
-}
+    }
 
-    .row > a{
+    .row > a {
         color: #666666;
     }
 
@@ -78,14 +80,14 @@
 
         text-align: center;
         margin-right: auto;
-        margin-left:  auto;
+        margin-left: auto;
         max-width: 960px;
         padding-right: 10px;
-        padding-left:  10px;
+        padding-left: 10px;
 
     }
 
-    #overlay{
+    #overlay {
         background-color: rgba(0, 0, 0, 0.8);
         top: 0;
         bottom: 0;
@@ -100,6 +102,7 @@
         text-align: center;
         border-bottom: 2px solid darkorange;
     }
+
     #text {
         padding-top: 20px;
     }
