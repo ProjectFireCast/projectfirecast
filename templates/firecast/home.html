@@ -20,7 +20,7 @@
 
 
     <!-- the main carousel on the home page -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="10000">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -131,8 +131,8 @@
 
 {% block footer %}
     <footer class="container footer">
-        <p class="float-right"><a href="{% url 'admin:index' %}">...</a></p>
-        <p>&copy; 2018-2019 Project FireCast Team &middot; <a href="{% url 'privacy' %}">Privacy</a> &middot;</p>
+        <p class="float-right"><a href="#">...</a></p>
+        <a href="{% url 'about' %}"><p>&copy; 2018-2019 Project FireCast Team</a> &middot; <a href="{% url 'privacy' %}">Privacy</a> &middot;</p>
     </footer>
 
 {% endblock footer %}

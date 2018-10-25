@@ -20,6 +20,9 @@ class UserMenuView(TemplateView):
 class PrivacyPolicyView(TemplateView):
     template_name = 'socialaccount/privacy_policy.html'
 
+class aboutview(TemplateView):
+    template_name = 'firecast/about.html'
+
 
 @login_required(login_url="/accounts/login")
 def create_podcast(request):

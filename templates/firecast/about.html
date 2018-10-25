@@ -1,0 +1,98 @@
+<!-- firecasr/about.html -->
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load socialaccount %}
+
+{% block  link %}
+    {{ block.super }}
+{% endblock link %}
+
+{% block title %}About The Team{% endblock title %}
+
+{% block navbar %}
+    {{ block.super }}
+{% endblock navbar %}
+
+{% block content %}
+    <div>
+        <h1>The FireCast Studio Team</h1>
+    </div>
+<div class="row top-2">
+        <div class="col-lg-4">
+            <div class="row justify-content-center">
+                <div class="row-4">
+                    <a href="https://www.linkedin.com/in/tim-o-shea-5b69a8164/" target="_blank">
+                        <img class="rounded-circle" src="{% static "app-icons/Photo_Tim.jpg" %}"
+                             alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
+                <div class="row-8 home-text">
+                    <a href="https://www.linkedin.com/in/tim-o-shea-5b69a8164/" target="_blank"><h2>Tim O'Shea</h2></a>
+                    <p>Tim was the project leader in second semester. He was in charge of sorting out a lot of the backend
+                        and helping out with the front when we needed his wisdom</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row justify-content-center">
+                <div class="row-4">
+                    <a href="https://www.linkedin.com/in/lewis-mcnamara-377503173/" target="_blank">
+                        <img class="rounded-circle" src="{% static "app-icons/Photo_Lewis.JPG" %}"
+                         alt="Generic placeholder image"
+                         width="140" height="140">
+                    </a>
+                </div>
+                <div class="row-8 home-text">
+                    <a href="https://www.linkedin.com/in/lewis-mcnamara-377503173/" target="_blank"><h2>Lewis McNamara</h2></a>
+                    <p>Lewis was the project leader in the first semester. Throughout the project he has been developing the
+                        front-end design of the website, trying to make the site look the best and still have a lot of functionallty</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="row justify-content-center">
+                <div class="row-4">
+                    <a href="https://www.linkedin.com/in/chris-guevara-a4b351152/" target="_blank">
+                        <img class="rounded-circle" src="{% static "app-icons/Photo_Chris.jpg" %}"
+                         alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
+                <div class="row-8 home-text">
+                    <a href="https://www.linkedin.com/in/chris-guevara-a4b351152/" target="_blank"><h2>Chris Guevara</h2></a>
+                    <p>Chris was also in charge of the front end design of the website. Chris also designed the main logo
+                        and the backgrounds for the website, along with that he also designed the main poster for our showcase</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="row justify-content-center">
+                <div class="row-8">
+                    <a href="https://www.linkedin.com/in/sandeep-raj-45282a118/" target="_blank">
+                        <img class="rounded-circle" src="{% static "app-icons/Photo_Sandeep.jpg" %}"
+                         alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
+                <div class="row-8 home-text">
+                    <a href="https://www.linkedin.com/in/sandeep-raj-45282a118/" target="_blank"><h2>Sandeep Raj</h2></a>
+                    <p>Sandeep was in charge of helping out with a lot of the backend stuff. This included the MailTo server </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="row justify-content-center">
+                <div class="row-8">
+                    <a href="#">
+                        <img class="rounded-circle" src="{% static "app-icons/Photo_David.jpg" %}"
+                         alt="Generic placeholder image" width="140" height="140">
+                    </a>
+                </div>
+                <div class="row-8 home-text">
+                    <a href="#"><h2>David Lu</h2></a>
+                    <p>David was in charge or sorting out all of the documentation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
