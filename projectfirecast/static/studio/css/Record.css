@@ -301,9 +301,9 @@
     background-color: green;
 }
 
-.playlist{
- pointer-events: none;
-}
+/*.playlist{*/
+ /*pointer-events: none;*/
+/*}*/
 
 .recordtext{
  pointer-events: none;
