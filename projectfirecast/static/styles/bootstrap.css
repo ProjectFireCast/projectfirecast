@@ -9049,8 +9049,8 @@ a.text-dark:hover, a.text-dark:focus {
 .cover_img{
     height: auto;
     width: 100%;
-    padding-left: 3em;
-    padding-right: 0.75em;
+    padding-left: 2em;
+    padding-right: 2em;
     padding-top: 2em;
 }
 
@@ -9069,7 +9069,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .podcast_text{
     width: 100%;
-    padding-left: 0.75em;
+    padding-left: 2em;
     padding-right: 3em;
     padding-top: 2em;
 }

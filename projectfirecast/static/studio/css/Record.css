@@ -574,6 +574,15 @@ details[open] summary {
     margin-bottom: .5em;
 }
 
+details[open] summary ~ * {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; margin-left: -10px}
+  100%  {opacity: 1; margin-left: 0px}
+}
+
 summary:focus{
       /*outline: 1px solid orange;*/
     outline: none;

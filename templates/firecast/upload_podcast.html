@@ -4,6 +4,7 @@
 {% load socialaccount %}
 {% load widget_tweaks %}
 
+
 {% block  link %}
     <link href="{% static "studio/css/Record.css" %}" rel="stylesheet" type="text/css">
     {{ block.super }}
@@ -17,22 +18,63 @@
 
 {% block content %}
     <h1> Upload a Podcast</h1>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Upload podcast</button>
-  </form>
+    <form method="post" enctype="multipart/form-data" class="col-md-6">
 
+        {% csrf_token %}
+        {#      {{ form.as_p }}#}
 
-    <p><a href="{% url 'usermenu' %}">Cancel</a></p>
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+
+        {% for field in form.visible_fields %}
+            <div class="form-group row">
+                <label class="col-sm-2"
+                       style="font-family: Walkway, Helvetica, sans-serif;
+                       font-size:1.2em;color:#e9e9e9;
+                       line-height:.8em;
+                       padding-right:0.5em;
+                       font-weight: bold;"
+
+                       for="{{ field.id_for_label }}">{{ field.label }}
+                </label>
+
+                <div class="col-sm-10">
+                    {{ field|add_class:'form-control' }}
+                </div>
+                {% for error in field.errors %}
+                    <span class="help-block">{{ error }}</span>
+                {% endfor %}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-warning">
+                <span class="glyphicon glyphicon-ok"></span>Upload
+            </button>
+            <<a href="{% url 'usermenu' %}">Cancel</a>
+        </div>
+    </form>
 {% endblock %}
+
+
+
+
+
+
+
+
 
 {% block js %}
     {{ block.super }}
     <script>
-    $(document).ready(function() {
-    //do jQuery stuff when DOM is ready
-        $('form').areYouSure();
-    });
+        $(document).ready(function () {
+            //do jQuery stuff when DOM is ready
+            $('form').areYouSure();
+        });
     </script>
 {% endblock js %}
